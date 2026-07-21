@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name — Portfolio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <main class="snap-container" id="snapContainer">
+
+    <!-- ================= 1. HERO / BUSINESS CARD ================= -->
+    <section class="page page--hero" id="hero">
+      <div class="content">
+        <div class="biz-card animate" data-anim="fade-up">
+          <h1 class="hero-name">Your Name</h1>
+          <h2 class="hero-title">Researcher · Professional Title</h2>
+          <hr class="card-rule" />
+          <ul class="contact-list">
+            <li class="animate" data-anim="fade-up" data-delay="1">
+              <span class="contact-label">School</span>
+              <a href="mailto:yourname@university.edu">yourname@university.edu</a>
+            </li>
+            <li class="animate" data-anim="fade-up" data-delay="1">
+              <span class="contact-label">Personal</span>
+              <a href="mailto:yourname@gmail.com">yourname@gmail.com</a>
+            </li>
+            <li class="animate" data-anim="fade-up" data-delay="2">
+              <span class="contact-label">Phone</span>
+              <a href="tel:+15555555555">(555) 555-5555</a>
+            </li>
+          </ul>
+          <div class="social-links animate" data-anim="fade-up" data-delay="3">
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
+              <!-- GitHub logo -->
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" aria-hidden="true">
+                <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/>
+              </svg>
+            </a>
+            <a href="https://orcid.org/0000-0000-0000-0000" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID">
+              <!-- ORCID logo -->
+              <svg viewBox="0 0 256 256" width="34" height="34" fill="currentColor" aria-hidden="true">
+                <path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zM86.3 186.2H70.9V79.1h15.4v107.1zm-7.7-116.8c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zm101.1 116.8h-42.8V79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.5-55.8 53.5zm-1.2-93.2h-26.2v79.3h25.6c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.6-42.3-39.6z"/>
+              </svg>
+            </a>
+            <a href="https://www.linkedin.com/in/yourusername" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+              <!-- LinkedIn logo -->
+              <svg viewBox="0 0 24 24" width="34" height="34" fill="currentColor" aria-hidden="true">
+                <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <a class="scroll-indicator" href="#about" aria-label="Scroll down to About">
+        <span>Scroll</span>
+        <svg class="arrow" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+          <path d="M12 4v14m0 0l-6-6m6 6l6-6" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </section>
+
+    <!-- ================= 2. ABOUT ================= -->
+    <section class="page page--about" id="about">
+      <div class="content">
+        <h2 class="section-heading animate" data-anim="fade-up">About Me</h2>
+        <div class="about-grid">
+          <div class="bio animate" data-anim="fade-up" data-delay="1">
+            <p>
+              Write your professional bio here. Two to four sentences covering who you are,
+              what you specialize in, and what drives your work.
+            </p>
+            <p>
+              A second paragraph can cover your background, current focus, or what
+              you're looking for next.
+            </p>
+          </div>
+          <div class="skills animate" data-anim="fade-up" data-delay="2">
+            <h3>Core Skills</h3>
+            <ul class="skill-tags">
+              <li>Skill One</li>
+              <li>Skill Two</li>
+              <li>Skill Three</li>
+              <li>Skill Four</li>
+              <li>Skill Five</li>
+              <li>Skill Six</li>
+              <li>Skill Seven</li>
+              <li>Skill Eight</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 3. PORTFOLIO ================= -->
+    <section class="page page--portfolio" id="portfolio">
+      <div class="content">
+        <h2 class="section-heading animate" data-anim="fade-up">Projects</h2>
+        <div class="project-grid">
+          <article class="project-card animate" data-anim="fade-up" data-delay="1">
+            <div class="project-img" aria-hidden="true"><span>Image</span></div>
+            <h3>Project Title One</h3>
+            <p>One or two sentences describing the project, the problem it solves, and the tools used.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+          </article>
+          <article class="project-card animate" data-anim="fade-up" data-delay="2">
+            <div class="project-img" aria-hidden="true"><span>Image</span></div>
+            <h3>Project Title Two</h3>
+            <p>One or two sentences describing the project, the problem it solves, and the tools used.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+          </article>
+          <article class="project-card animate" data-anim="fade-up" data-delay="3">
+            <div class="project-img" aria-hidden="true"><span>Image</span></div>
+            <h3>Project Title Three</h3>
+            <p>One or two sentences describing the project, the problem it solves, and the tools used.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+          </article>
+          <article class="project-card animate" data-anim="fade-up" data-delay="4">
+            <div class="project-img" aria-hidden="true"><span>Image</span></div>
+            <h3>Project Title Four</h3>
+            <p>One or two sentences describing the project, the problem it solves, and the tools used.</p>
+            <a class="btn" href="#" target="_blank" rel="noopener">View Project</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 4. RESEARCH ================= -->
+    <section class="page page--research" id="research">
+      <div class="content">
+        <h2 class="section-heading animate" data-anim="fade-up">Research</h2>
+        <div class="timeline">
+          <div class="timeline-item animate" data-anim="slide-left" data-delay="1">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-body">
+              <h3>Research Project Title</h3>
+              <p class="meta">Lab / Institution · Jan 2025 – Present</p>
+              <ul>
+                <li>What you investigated and the methods or models you built.</li>
+                <li>A key finding, contribution, or result.</li>
+              </ul>
+              <blockquote class="citation">
+                Placeholder citation: Author, A., <strong>Your Name</strong>, &amp; Author, B. (Year).
+                Title of the paper. <em>Journal / Preprint Server</em>. DOI: 10.xxxx/xxxxx
+              </blockquote>
+              <a class="btn" href="https://github.com/yourusername/project-one" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+          <div class="timeline-item animate" data-anim="slide-left" data-delay="2">
+            <div class="timeline-marker" aria-hidden="true"></div>
+            <div class="timeline-body">
+              <h3>Research Project Title</h3>
+              <p class="meta">Lab / Institution · Jun 2024 – Dec 2024</p>
+              <ul>
+                <li>What you investigated and the methods or models you built.</li>
+                <li>A key finding, contribution, or result.</li>
+              </ul>
+              <blockquote class="citation">
+                Placeholder citation: Author, A., <strong>Your Name</strong>, &amp; Author, B. (Year).
+                Title of the paper. <em>Journal / Preprint Server</em>. DOI: 10.xxxx/xxxxx
+              </blockquote>
+              <a class="btn" href="https://github.com/yourusername/project-two" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= 5. EDUCATION ================= -->
+    <section class="page page--education" id="education">
+      <div class="content">
+        <h2 class="section-heading animate" data-anim="fade-up">Education</h2>
+        <div class="edu-grid">
+          <article class="edu-card animate" data-anim="fade-up" data-delay="1">
+            <h3>Degree, Major</h3>
+            <p class="meta">University / Institution · Class of 20XX</p>
+            <ul>
+              <li>Key coursework: Course One, Course Two, Course Three</li>
+              <li>Honors / Awards placeholder</li>
+              <li>GPA: X.XX</li>
+            </ul>
+          </article>
+          <article class="edu-card animate" data-anim="fade-up" data-delay="2">
+            <h3>Certificate or Second Degree</h3>
+            <p class="meta">Institution · 20XX</p>
+            <ul>
+              <li>Key coursework or focus area</li>
+              <li>Notable achievement</li>
+            </ul>
+          </article>
+        </div>
+        <button class="btn btn--top animate" data-anim="fade-up" data-delay="3" id="backToTop">
+          ↑ Back to Top
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
