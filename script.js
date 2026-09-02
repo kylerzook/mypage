@@ -1,14 +1,15 @@
 /* ==========================================================================
    Personal Portfolio — script.js
-   1) Intersection Observer: animate section content when it snaps into view
-   2) Back to Top button: smooth scroll to the Hero section
+   1) Intersection Observer: animate section content when it scrolls into view
+   2) Section nav rail: highlight the section currently in view
+   3) Back to Top + smooth in-page anchor scrolling
    ========================================================================== */
 
 (function () {
   "use strict";
 
   const container = document.getElementById("snapContainer");
-  const pages = document.querySelectorAll(".page");
+  const pages = Array.prototype.slice.call(document.querySelectorAll(".page"));
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- 1. Scroll-triggered entry animations ---------- */
@@ -18,7 +19,7 @@
         entries.forEach((entry) => {
           const animated = entry.target.querySelectorAll(".animate");
           if (entry.isIntersecting) {
-            // Section has snapped into view — play its entry animations
+            // Section scrolled into view — play its entry animations
             animated.forEach((el) => el.classList.add("in-view"));
           } else {
             // Section left the viewport — reset so animations replay next visit
@@ -27,8 +28,8 @@
         });
       },
       {
-        root: container,     // observe within the snap-scrolling container
-        threshold: 0.35,     // fire once ~35% of the section is visible
+        root: container,     // observe within the scrolling container
+        threshold: 0.25,     // fire once ~25% of the section is visible
       }
     );
 
@@ -38,7 +39,42 @@
     document.querySelectorAll(".animate").forEach((el) => el.classList.add("in-view"));
   }
 
-  /* ---------- 2. Back to Top ---------- */
+  /* ---------- 2. Section nav rail ---------- */
+  const navLinks = Array.prototype.slice.call(document.querySelectorAll(".page-nav a"));
+
+  function syncNav() {
+    if (!navLinks.length) return;
+
+    // The active section is the last one whose top has passed the fold line.
+    const fold = container.scrollTop + container.clientHeight * 0.35;
+    let activeId = pages.length ? pages[0].id : null;
+
+    pages.forEach((page) => {
+      if (page.offsetTop <= fold) activeId = page.id;
+    });
+
+    navLinks.forEach((link) => {
+      link.classList.toggle("is-active", link.getAttribute("href") === "#" + activeId);
+    });
+  }
+
+  let ticking = false;
+  container.addEventListener(
+    "scroll",
+    () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        syncNav();
+        ticking = false;
+      });
+    },
+    { passive: true }
+  );
+  window.addEventListener("resize", syncNav);
+  syncNav();
+
+  /* ---------- 3. Back to Top ---------- */
   const backToTop = document.getElementById("backToTop");
   if (backToTop) {
     backToTop.addEventListener("click", () => {
@@ -49,7 +85,7 @@
     });
   }
 
-  /* ---------- 3. Smooth in-page anchor scrolling (scroll indicator) ---------- */
+  /* ---------- 4. Smooth in-page anchor scrolling ---------- */
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", (e) => {
       const target = document.querySelector(link.getAttribute("href"));
