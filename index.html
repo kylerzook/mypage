@@ -3,306 +3,36 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Kyler Zook | Portfolio</title>
+<title>Kyler Zook — Machine Learning &amp; Computational Biology</title>
+<meta name="theme-color" content="#f8f5f0" />
+<link rel="canonical" href="https://www.kylerzook.com/" />
+<script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}</script>
 <meta name="description" content="Kyler Zook — machine learning and computational biology. Gene regulatory network inference, graph neural networks, and the data infrastructure underneath them." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d1d1f'/%3E%3Ctext x='32' y='43' font-family='-apple-system,Helvetica,Arial' font-size='30' font-weight='600' text-anchor='middle' fill='%23ffffff'%3EKZ%3C/text%3E%3C/svg%3E" />
-<style>
-/* ===================== TOKENS ===================== */
-:root{
-  --bg:#ffffff; --bg-alt:#f5f5f7; --bg-sunk:#ebebef;
-  --glass:rgba(255,255,255,.74);
-  --text:#1d1d1f; --text-2:#6e6e73; --text-3:#86868b;
-  --accent:#0071e3; --accent-2:#5e5ce6;
-  --hairline:rgba(0,0,0,.10); --hairline-2:rgba(0,0,0,.055);
-  --shadow:0 20px 60px rgba(0,0,0,.09);
-  --shadow-lift:0 16px 44px rgba(0,0,0,.12);
-  --net-node:#0071e3; --net-edge:rgba(0,0,0,.16);
-  --radius:20px; --maxw:1040px;
-}
-html[data-theme="dark"]{
-  --bg:#000000; --bg-alt:#0e0e10; --bg-sunk:#1a1a1d;
-  --glass:rgba(20,20,23,.62);
-  --text:#f5f5f7; --text-2:#a1a1a6; --text-3:#86868b;
-  --accent:#2997ff; --accent-2:#8b87ff;
-  --hairline:rgba(255,255,255,.13); --hairline-2:rgba(255,255,255,.07);
-  --shadow:0 20px 60px rgba(0,0,0,.6);
-  --shadow-lift:0 16px 44px rgba(0,0,0,.65);
-  --net-node:#2997ff; --net-edge:rgba(255,255,255,.18);
-}
-@media (prefers-color-scheme:dark){
-  html:not([data-theme="light"]){
-    --bg:#000000; --bg-alt:#0e0e10; --bg-sunk:#1a1a1d;
-    --glass:rgba(20,20,23,.62);
-    --text:#f5f5f7; --text-2:#a1a1a6; --text-3:#86868b;
-    --accent:#2997ff; --accent-2:#8b87ff;
-    --hairline:rgba(255,255,255,.13); --hairline-2:rgba(255,255,255,.07);
-    --shadow:0 20px 60px rgba(0,0,0,.6);
-    --shadow-lift:0 16px 44px rgba(0,0,0,.65);
-    --net-node:#2997ff; --net-edge:rgba(255,255,255,.18);
-  }
-}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{
-  scroll-behavior:smooth; -webkit-text-size-adjust:100%;
-  scroll-snap-type:y proximity;          /* proximity: a tall section can never trap you */
-}
-body{
-  background:var(--bg); color:var(--text);
-  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  font-size:17px; line-height:1.5; letter-spacing:-.01em;
-  -webkit-font-smoothing:antialiased; overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none}
-.wrap{width:min(var(--maxw),100% - 46px);margin-inline:auto}
-
-/* ===================== PAGE (v1 format: one section per screen) ===================== */
-.page{
-  min-height:100svh; scroll-snap-align:start;
-  display:flex; flex-direction:column; justify-content:center;
-  padding:74px 0 56px; position:relative;
-  border-top:1px solid var(--hairline-2);
-}
-.page:first-child{border-top:0}
-
-/* ===================== TYPE ===================== */
-.eyebrow{font-size:12px;font-weight:600;color:var(--accent);margin-bottom:12px;
-  display:flex;align-items:center;gap:9px}
-.eyebrow .idx{font-variant-numeric:tabular-nums;color:var(--text-3);font-weight:500;
-  padding-right:9px;border-right:1px solid var(--hairline)}
-h1{font-size:clamp(38px,6vw,60px);line-height:1.04;font-weight:600;letter-spacing:-.035em}
-h2{font-size:clamp(28px,3.6vw,40px);line-height:1.08;font-weight:600;letter-spacing:-.03em}
-h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
-.section-head{margin-bottom:26px}
-.section-head h2::after{
-  content:"";display:block;width:48px;height:3px;border-radius:3px;
-  background:linear-gradient(90deg,var(--accent),var(--accent-2));margin-top:13px;
-}
-.section-lede{font-size:17px;line-height:1.5;color:var(--text-2);max-width:56ch;margin-top:16px}
-.small{font-size:14px;color:var(--text-3)}
-.rise{display:block;overflow:hidden}
-.rise>span{display:block;transform:translateY(105%);transition:transform 1s cubic-bezier(.16,1,.3,1)}
-.rise.in>span{transform:none}
-.reveal{opacity:0;transform:translateY(22px);
-  transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
-.reveal.in{opacity:1;transform:none}
-
-/* ===================== HERO (v1 business card, v3 finish) ===================== */
-.hero{overflow:hidden;justify-content:center}
-#net{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
-.hero .wrap{position:relative;z-index:1}
-.biz{
-  max-width:520px;margin-inline:auto;text-align:center;
-  background:var(--glass);
-  backdrop-filter:saturate(180%) blur(26px);-webkit-backdrop-filter:saturate(180%) blur(26px);
-  border:1px solid var(--hairline);border-radius:28px;
-  padding:46px 44px 38px;box-shadow:var(--shadow);
-}
-.status{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;font-size:12.5px;
-  color:var(--text-2);background:var(--bg-alt);border:1px solid var(--hairline-2);
-  padding:6px 14px;border-radius:980px}
-.dot{width:7px;height:7px;border-radius:50%;background:#30d158;position:relative;flex:none}
-.dot::after{content:"";position:absolute;inset:0;border-radius:50%;background:#30d158;
-  animation:ping 2.4s cubic-bezier(0,0,.2,1) infinite}
-@keyframes ping{0%{transform:scale(1);opacity:.7}80%,100%{transform:scale(2.6);opacity:0}}
-.biz h1{margin-bottom:12px}
-.biz .role{font-size:16px;color:var(--text-2);letter-spacing:-.015em}
-.biz .org{font-size:13.5px;color:var(--text-3);margin-top:5px}
-.contact{list-style:none;margin-top:28px;border-top:1px solid var(--hairline)}
-.contact li{display:flex;justify-content:space-between;align-items:center;gap:16px;
-  padding:11px 2px;border-bottom:1px solid var(--hairline-2);font-size:14px}
-.contact span{color:var(--text-3)}
-.contact a{color:var(--accent)}
-.contact a:hover{text-decoration:underline}
-.socials{display:flex;justify-content:center;gap:10px;margin-top:26px}
-.socials a{width:40px;height:40px;border-radius:50%;border:1px solid var(--hairline);
-  display:grid;place-items:center;color:var(--text-2);
-  transition:color .25s ease,border-color .25s ease,transform .25s ease,background .25s ease}
-.socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px);background:var(--bg-alt)}
-.socials svg{width:18px;height:18px;fill:currentColor}
-.cta-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:42px;padding:0 22px;
-  border-radius:980px;font-size:14.5px;font-weight:500;letter-spacing:-.01em;
-  transition:transform .2s ease,opacity .2s ease,background .2s ease}
-.btn:active{transform:scale(.97)}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:hover{opacity:.87}
-.btn-ghost{border:1px solid var(--hairline);color:var(--text)}
-.btn-ghost:hover{background:var(--bg-alt)}
-.btn-text{color:var(--accent);font-size:14px;font-weight:500;display:inline-flex;align-items:center;gap:5px}
-.btn-text .arw{transition:transform .3s cubic-bezier(.2,.7,.3,1)}
-.btn-text:hover .arw{transform:translateX(4px)}
-.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:10.5px;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);display:flex;flex-direction:column;
-  align-items:center;gap:8px;z-index:1}
-.scroll-hint .line{width:1px;height:30px;background:linear-gradient(var(--text-3),transparent);
-  animation:drop 2.2s ease-in-out infinite}
-@keyframes drop{0%,100%{opacity:.25;transform:scaleY(.7)}50%{opacity:1;transform:scaleY(1)}}
-
-/* ===================== DOT NAV RAIL (v1) ===================== */
-.rail{position:fixed;top:50%;right:26px;transform:translateY(-50%);z-index:60;
-  display:flex;flex-direction:column;gap:15px}
-.rail a{display:block;position:relative;padding:4px}
-.rail i{display:block;width:9px;height:9px;border-radius:50%;
-  border:1.5px solid var(--text-3);background:transparent;
-  transition:background .3s ease,border-color .3s ease,transform .3s ease}
-.rail a:hover i{transform:scale(1.3);border-color:var(--accent)}
-.rail a.active i{background:var(--accent);border-color:var(--accent);transform:scale(1.15)}
-.rail a::after{content:attr(data-label);position:absolute;right:calc(100% + 10px);top:50%;
-  transform:translateY(-50%) translateX(4px);white-space:nowrap;font-size:11px;font-weight:500;
-  color:var(--text);background:var(--glass);backdrop-filter:blur(14px);
-  border:1px solid var(--hairline);padding:4px 10px;border-radius:980px;
-  opacity:0;pointer-events:none;transition:opacity .25s ease,transform .25s ease}
-.rail a:hover::after{opacity:1;transform:translateY(-50%)}
-@media(max-width:1080px){.rail{display:none}}
-
-.theme-btn{position:fixed;top:20px;right:22px;z-index:70;width:36px;height:36px;border-radius:50%;
-  border:1px solid var(--hairline);background:var(--glass);backdrop-filter:blur(16px);
-  color:var(--text);cursor:pointer;display:grid;place-items:center;
-  transition:background .25s ease,transform .2s ease}
-.theme-btn:active{transform:scale(.92)}
-.theme-btn svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round}
-
-/* ===================== ABOUT ===================== */
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:52px}
-.about-grid p{font-size:16.5px;line-height:1.6;color:var(--text-2)}
-.about-grid p+p{margin-top:16px}
-.about-grid strong{color:var(--text);font-weight:600}
-.skill-block+.skill-block{margin-top:20px}
-.skill-block h4{font-size:12.5px;font-weight:600;color:var(--text-3);margin-bottom:9px}
-.pills{display:flex;flex-wrap:wrap;gap:6px;list-style:none}
-.pills li{font-size:13px;color:var(--text-2);background:var(--bg-alt);
-  border:1px solid var(--hairline-2);padding:5px 12px;border-radius:980px;
-  transition:color .25s ease,border-color .25s ease}
-.pills li:hover{color:var(--text);border-color:var(--hairline)}
-@media(max-width:860px){.about-grid{grid-template-columns:1fr;gap:36px}}
-
-/* ===================== PROJECTS (v1 2x2 grid) ===================== */
-.project-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:13px}
-#projects .section-head{margin-bottom:20px}
-.card{background:var(--bg-alt);border:1px solid var(--hairline-2);border-radius:var(--radius);
-  padding:20px 21px 18px;display:flex;flex-direction:column;
-  transition:transform .4s cubic-bezier(.2,.7,.3,1),box-shadow .4s ease,border-color .4s ease}
-.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lift);border-color:var(--hairline)}
-.card .num{font-size:11.5px;font-weight:600;color:var(--text-3);
-  font-variant-numeric:tabular-nums;margin-bottom:8px}
-.card h3{margin-bottom:9px}
-.card p{font-size:14px;line-height:1.45;color:var(--text-2);flex:1 0 auto}
-.card-vis{background:var(--bg);border:1px solid var(--hairline-2);border-radius:12px;
-  padding:10px 10px;margin-top:12px}
-.card-vis svg{max-height:clamp(46px,6.2vh,92px)}
-.stack{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px;list-style:none}
-.stack li{font-size:11.5px;color:var(--text-3);background:var(--bg);
-  border:1px solid var(--hairline-2);border-radius:980px;padding:4px 10px}
-.card-link{margin-top:11px}
-.mini-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px;
-  padding-top:11px;border-top:1px solid var(--hairline)}
-.mini-stats .n{font-size:21px;font-weight:600;letter-spacing:-.03em;line-height:1.1;display:block;
-  font-variant-numeric:tabular-nums}
-.mini-stats .l{font-size:10.5px;color:var(--text-3);margin-top:3px;display:block;line-height:1.3}
-@media(max-width:860px){.project-grid{grid-template-columns:1fr}}
-
-/* Diagrams */
-.diagram{width:100%;height:auto;display:block}
-.diagram .bx{fill:var(--bg);stroke:var(--hairline);stroke-width:1}
-.diagram .bx-a{fill:color-mix(in srgb,var(--accent) 12%,transparent);stroke:var(--accent);stroke-width:1.2}
-.diagram .lbl{fill:var(--text-2);font-size:8.5px;font-family:inherit;font-weight:500}
-.diagram .lbl-a{fill:var(--accent);font-size:8.5px;font-family:inherit;font-weight:600}
-.diagram .arw-l{stroke:var(--text-3);stroke-width:1;fill:none;opacity:.6}
-.diagram .edge{stroke:var(--net-edge);stroke-width:1;fill:none}
-.diagram .nd{fill:var(--text-3)}
-.diagram .nd-a{fill:var(--accent)}
-.flow{stroke-dasharray:4 4;animation:dash 1.6s linear infinite}
-@keyframes dash{to{stroke-dashoffset:-16}}
-
-/* ===================== RESEARCH (v1 timeline) ===================== */
-.timeline{position:relative;padding-left:30px}
-.timeline::before{content:"";position:absolute;left:4px;top:6px;bottom:6px;width:2px;
-  background:linear-gradient(var(--accent),var(--accent-2));opacity:.28;border-radius:2px}
-.t-item{position:relative}
-.t-item+.t-item{margin-top:30px}
-.t-item .marker{position:absolute;left:-30px;top:5px;width:10px;height:10px;border-radius:50%;
-  background:var(--bg);border:2.5px solid var(--accent)}
-.t-head{display:flex;flex-wrap:wrap;gap:2px 16px;align-items:baseline;margin-bottom:12px}
-.t-head h3{flex:1 1 300px}
-.t-date{font-size:13px;color:var(--text-3);white-space:nowrap;font-variant-numeric:tabular-nums}
-.t-org{font-size:14px;color:var(--text-2);width:100%;margin-top:2px}
-.t-item ul{list-style:none;display:grid;gap:10px}
-.t-item li{position:relative;padding-left:18px;color:var(--text-2);font-size:14.5px;line-height:1.5}
-.t-item li::before{content:"";position:absolute;left:2px;top:8px;width:4px;height:4px;
-  border-radius:50%;background:var(--accent);opacity:.6}
-
-/* ===================== PUBLICATIONS ===================== */
-.pub{padding:22px 0;border-top:1px solid var(--hairline)}
-.pub:last-child{border-bottom:1px solid var(--hairline)}
-.pub-status{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.03em;color:var(--accent);
-  background:color-mix(in srgb,var(--accent) 11%,transparent);padding:4px 11px;
-  border-radius:980px;margin-bottom:11px}
-.pub-cite{font-size:17px;line-height:1.45;letter-spacing:-.018em;max-width:64ch}
-.pub-note{font-size:14px;color:var(--text-2);margin-top:8px;max-width:68ch}
-
-/* ===================== EDUCATION ===================== */
-.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.edu{background:var(--bg-alt);border:1px solid var(--hairline-2);border-radius:var(--radius);padding:26px 24px}
-.edu h3{font-size:18px;margin-bottom:5px}
-.edu .org{font-size:13px;color:var(--text-3);margin-bottom:14px}
-.edu ul{list-style:none;display:grid;gap:8px}
-.edu li{font-size:13.5px;color:var(--text-2);line-height:1.45}
-.top-row{margin-top:34px;display:flex;justify-content:center}
-@media(max-width:860px){.edu-grid{grid-template-columns:1fr}}
-
-.foot-note{margin-top:26px;padding-top:18px;border-top:1px solid var(--hairline-2);
-  display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
-.foot-note a{font-size:13.5px;color:var(--text-2)}
-.foot-note a:hover{color:var(--accent)}
-.foot-links{display:flex;gap:18px;list-style:none;flex-wrap:wrap}
-
-@media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto;scroll-snap-type:none}
-  .reveal,.rise>span{opacity:1!important;transform:none!important;transition:none!important}
-  .card:hover{transform:none}
-  .dot::after,.scroll-hint .line,.flow{animation:none}
-}
-@media (max-height:870px) and (min-width:861px){
-  .page{padding:60px 0 46px}
-  #projects .section-head{margin-bottom:14px}
-  .card{padding:16px 18px 15px}
-  .card p{font-size:13.5px}
-  .project-grid{gap:11px}
-}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-</style>
+<link rel="stylesheet" href="portfolio.css" />
 </head>
 <body>
 
-<button class="theme-btn" id="themeBtn" aria-label="Switch colour theme" title="Switch theme">
-  <svg viewBox="0 0 24 24" id="themeIcon"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M17.7 6.3l1.5-1.5M4.8 19.2l1.5-1.5"/></svg>
-</button>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap header-inner">
+  <a class="wordmark" href="#hero" aria-label="Kyler Zook, home">kz<span>.</span></a>
+  <nav class="site-nav" aria-label="Main navigation">
+    <a href="#projects">Work</a><a href="#about">About</a><a href="#research">Experience</a><a href="#publications">Publications</a><a href="#education">Education</a>
+  </nav>
+  <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme" title="Switch theme"><svg viewBox="0 0 24 24" id="themeIcon" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/></svg></button>
+</div><div class="reading-progress" aria-hidden="true"></div></header>
 
-<nav class="rail" aria-label="Section navigation">
-  <a href="#hero" data-label="Home"><i></i></a>
-  <a href="#about" data-label="About"><i></i></a>
-  <a href="#projects" data-label="Projects"><i></i></a>
-  <a href="#research" data-label="Research"><i></i></a>
-  <a href="#publications" data-label="Publications"><i></i></a>
-  <a href="#education" data-label="Education"><i></i></a>
-</nav>
+<main id="main" tabindex="-1">
 
-<main>
-
-  <!-- ============ 1. HERO ============ -->
-  <section class="page hero" id="hero">
-    <canvas id="net" aria-hidden="true"></canvas>
-    <div class="wrap">
-      <div class="biz reveal">
-        <div class="status"><span class="dot"></span> Seeking Summer 2027 internships</div>
-        <h1><span class="rise" id="r0"><span>Kyler Zook</span></span></h1>
-        <p class="role">Machine Learning &amp; Computational Biology</p>
-        <p class="org">Undergraduate Researcher · University of Missouri — Columbia</p>
-        <ul class="contact">
-          <li><span>University</span><a href="mailto:kjz6f3@umsystem.edu">kjz6f3@umsystem.edu</a></li>
-          <li><span>Personal</span><a href="mailto:kylerzook@gmail.com">kylerzook@gmail.com</a></li>
-        </ul>
-        <div class="socials">
+  <section class="page hero" id="hero" aria-labelledby="hero-title">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">MACHINE LEARNING &amp; COMPUTATIONAL BIOLOGY</p>
+        <h1 id="hero-title">Kyler Zook<span class="accent">.</span></h1>
+        <p class="hero-statement">Machine learning for<br>questions in biology.</p>
+        <p class="hero-description">I work on gene regulatory networks and the practical pieces around them: data pipelines, GPU kernels, and reliable evaluation.</p>
+        <div class="cta-row"><a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="mailto:kylerzook@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div>
+        <div class="hero-meta"><span class="status"><span class="dot" aria-hidden="true"></span>Seeking Summer 2027 internships</span><div class="socials">
           <a href="https://github.com/zaykay101111" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
           </a>
@@ -312,70 +42,67 @@ h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
           <a href="https://www.linkedin.com/in/kylerzook" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
           </a>
-        </div>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="mailto:kylerzook@gmail.com">Get in touch</a>
-          <a class="btn btn-ghost" href="#projects">See my work</a>
-        </div>
+        </div></div>
       </div>
+      <figure class="network-panel" data-view="network">
+        <div class="panel-heading"><span>RESEARCH NOTEBOOK</span><span>01 / GRN</span></div>
+        <svg class="network-art" viewBox="0 0 440 350" role="img" aria-labelledby="network-title"><title id="network-title">An illustrative gene regulatory network, connecting genes across biological pathways</title>
+          <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="currentColor" opacity=".14"/></pattern></defs>
+          <rect width="440" height="350" fill="url(#grid)"/>
+          <g class="network-orbits" fill="none"><circle cx="220" cy="175" r="128"/><circle cx="220" cy="175" r="84"/></g>
+          <g class="network-lines"><path d="M70 117 151 72 222 139 306 74 365 151 298 225 354 285M70 117 129 205 82 274 199 287 298 225 222 139 129 205 199 287M151 72 129 205 298 225 306 74M70 117 222 139 365 151M199 287 222 139M129 205 70 117M298 225 365 151"/></g>
+          <g class="network-focus" aria-hidden="true"><path d="M151 72 222 139 365 151M70 117 222 139 298 225M222 139 199 287M222 139 129 205"/></g>
+          <g class="network-halos"><circle cx="222" cy="139" r="28"/><circle cx="129" cy="205" r="22"/><circle cx="298" cy="225" r="24"/></g>
+          <g class="network-nodes"><circle cx="70" cy="117" r="6"/><circle cx="151" cy="72" r="8"/><circle cx="222" cy="139" r="12"/><circle cx="306" cy="74" r="7"/><circle cx="365" cy="151" r="6"/><circle cx="129" cy="205" r="9"/><circle cx="82" cy="274" r="5"/><circle cx="199" cy="287" r="7"/><circle cx="298" cy="225" r="10"/><circle cx="354" cy="285" r="5"/></g>
+          <g class="network-labels"><text x="236" y="120">TF</text><text x="93" y="192">GENE</text><text x="311" y="218">TARGET</text></g>
+        </svg>
+        <figcaption><span class="figure-index">AN ILLUSTRATIVE NETWORK</span><strong>How do genes<br>influence each other?</strong></figcaption>
+        <div class="network-controls" role="group" aria-label="Explore the network illustration" hidden>
+          <button type="button" data-view="network" aria-pressed="true">Network</button>
+          <button type="button" data-view="regulation" aria-pressed="false">Regulation</button>
+          <button type="button" data-view="prediction" aria-pressed="false">Prediction</button>
+        </div>
+        <p class="network-note" id="network-note" aria-live="polite">Each node represents a gene. Connections represent possible regulatory relationships.</p>
+      </figure>
     </div>
-    <div class="scroll-hint" aria-hidden="true"><span class="line"></span>Scroll</div>
+    <div class="wrap hero-bottom"><span>Undergraduate researcher <span aria-hidden="true">/</span> University of Missouri — Columbia</span><a href="#projects">Selected work <span aria-hidden="true">↓</span></a></div>
   </section>
 
-  <!-- ============ 2. ABOUT ============ -->
-  <section class="page" id="about">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow"><span class="idx">01</span> About</p>
-        <h2 class="rise"><span>Machine learning, meet genomics.</span></h2>
-      </div>
-      <div class="about-grid">
-        <div class="reveal">
-          <p>I am a junior at the University of Missouri — Columbia pursuing a B.S. and an accelerated M.S. in Computer Science, with minors in Mathematics and Biological Sciences. What pulls me toward this intersection is how directly these methods are changing the way we understand disease and design treatment.</p>
-          <p>In <strong>Dr. Jianlin Cheng's lab</strong> I develop methods for <strong>gene regulatory network inference</strong> — building the multi-source pipelines, quality-control tooling, and evaluation infrastructure that graph neural network models are trained and measured on. I am co-first author on a <strong>NeurIPS 2026 submission</strong> under review.</p>
-          <p>Outside the lab I build systems: distributed job platforms, GPU kernels, and retrieval pipelines. I care about the unglamorous layer — reproducibility, data integrity, and benchmarks you can actually trust.</p>
-        </div>
-        <div class="reveal">
-          <div class="skill-block"><h4>Languages</h4>
-            <ul class="pills"><li>Python</li><li>C/C++</li><li>Java</li><li>SQL</li><li>JavaScript</li><li>Bash</li></ul></div>
-          <div class="skill-block"><h4>Libraries &amp; Frameworks</h4>
-            <ul class="pills"><li>PyTorch</li><li>TensorFlow</li><li>Scikit-learn</li><li>Pandas</li><li>NumPy</li><li>SciPy</li><li>LangChain</li><li>FastAPI</li></ul></div>
-          <div class="skill-block"><h4>Infrastructure</h4>
-            <ul class="pills"><li>Docker</li><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li><li>AWS</li><li>Git</li><li>Linux</li></ul></div>
-          <div class="skill-block"><h4>Focus Areas</h4>
-            <ul class="pills"><li>Gene Regulatory Networks</li><li>Graph Neural Networks</li><li>Single-cell Genomics</li><li>Multi-omics</li></ul></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ 3. PROJECTS ============ -->
+  <!-- Selected work -->
   <section class="page" id="projects">
     <div class="wrap">
-      <div class="section-head reveal">
-        <p class="eyebrow"><span class="idx">02</span> Selected Work</p>
-        <h2 class="rise"><span>Systems built end to end.</span></h2>
+      <div class="section-head">
+        <p class="eyebrow"><span class="idx">01</span> Selected Work</p>
+        <h2 class="section-title"><span>Projects I’ve built.</span></h2>
       </div>
-      <div class="project-grid">
+      <div class="project-toolbar" hidden>
+        <div class="project-filters" role="group" aria-label="Filter projects">
+          <button type="button" data-filter="all" aria-pressed="true">All work <span>04</span></button>
+          <button type="button" data-filter="ml" aria-pressed="false">Machine learning</button>
+          <button type="button" data-filter="systems" aria-pressed="false">Systems</button>
+        </div>
+        <p class="project-count" role="status">4 projects</p>
+      </div>
+      <div class="project-grid" id="project-grid">
 
-        <article class="card reveal">
-          <p class="num">01</p>
+        <article class="card" data-category="ml systems">
+          <p class="num">01 / ML INFRASTRUCTURE</p>
           <h3>GRN-Bench — Distributed Benchmark Platform</h3>
-          <p>Self-hosted service running multi-seed graph ML experiments as queued jobs. Idempotent writes survive 500 duplicate submissions and forced worker kills.</p>
+          <p>A self-hosted platform for running graph ML experiments as queued jobs. I built it to handle repeated submissions, worker failures, and multi-seed runs without corrupting results.</p>
           <div class="mini-stats">
-            <div><span class="n" data-count="35" data-dec="0" data-suffix="ms">0</span><span class="l">p95, from 1.2 s</span></div>
-            <div><span class="n" data-count="1.8" data-dec="1" data-suffix="M">0</span><span class="l">metric rows</span></div>
+            <div><span class="n">35ms</span><span class="l">p95, from 1.2 s</span></div>
+            <div><span class="n">1.8M</span><span class="l">metric rows</span></div>
             <div><span class="n">47→12</span><span class="l">GB deduplicated</span></div>
-            <div><span class="n" data-count="2.5" data-dec="1" data-suffix="h">0</span><span class="l">sweep, from 14 h</span></div>
+            <div><span class="n">2.5h</span><span class="l">sweep, from 14 h</span></div>
           </div>
           <ul class="stack"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>Celery</li><li>Docker</li></ul>
-          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">View project <span class="arw">→</span></a>
+          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="card reveal">
-          <p class="num">02</p>
+        <article class="card" data-category="ml systems">
+          <p class="num">02 / GPU COMPUTING</p>
           <h3>Custom Triton Kernels for GNN Operations</h3>
-          <p>Hand-written GPU kernels for the sparse message-passing primitives at the core of graph neural networks, cutting the memory traffic and launch overhead that dominate training.</p>
+          <p>Custom GPU kernels for the sparse message-passing operations used in graph neural networks. The goal was to reduce memory traffic and kernel-launch overhead during training.</p>
           <div class="card-vis">
             <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Neighbour features gathered into a target node, then a fused kernel">
               <defs><marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
@@ -395,13 +122,13 @@ h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
             </svg>
           </div>
           <ul class="stack"><li>Triton</li><li>PyTorch</li><li>CUDA</li></ul>
-          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">View project <span class="arw">→</span></a>
+          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="card reveal">
-          <p class="num">03</p>
+        <article class="card" data-category="ml">
+          <p class="num">03 / APPLIED AI</p>
           <h3>Creator Knowledge Base &amp; RAG Platform</h3>
-          <p>End-to-end pipeline ingesting YouTube captions, metadata, and transcripts into per-creator knowledge bases, with similarity search across 4,000 videos per creator.</p>
+          <p>A pipeline that turns YouTube captions, metadata, and transcripts into searchable knowledge bases for individual creators, covering up to 4,000 videos per creator.</p>
           <div class="card-vis">
             <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Pipeline: transcript, chunk, embed, vector database">
               <defs><marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
@@ -419,13 +146,13 @@ h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
             </svg>
           </div>
           <ul class="stack"><li>Python</li><li>LangChain</li><li>Ollama</li><li>AWS</li></ul>
-          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">View project <span class="arw">→</span></a>
+          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
         </article>
 
-        <article class="card reveal">
-          <p class="num">04</p>
+        <article class="card" data-category="systems">
+          <p class="num">04 / SYSTEMS ENGINEERING</p>
           <h3>Redis-Inspired Multithreaded Key-Value Store</h3>
-          <p>In-memory key-value store built from the socket up. Custom memory management and a hand-rolled TCP layer serve real-time SET/GET under stress testing.</p>
+          <p>An in-memory key-value store built from the socket layer upward, including custom memory management and a TCP request path for real-time SET and GET operations.</p>
           <div class="card-vis">
             <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Request path: client, TCP, parser, hash table over a memory pool">
               <defs><marker id="a4" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
@@ -445,22 +172,49 @@ h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
             </svg>
           </div>
           <ul class="stack"><li>C++</li><li>TCP Sockets</li><li>Multithreading</li></ul>
-          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">View project <span class="arw">→</span></a>
+          <a class="btn-text card-link" href="https://github.com/zaykay101111" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
         </article>
 
       </div>
     </div>
   </section>
 
-  <!-- ============ 4. RESEARCH ============ -->
+  <!-- About -->
+  <section class="page" id="about">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow"><span class="idx">02</span> About</p>
+        <h2 class="section-title"><span>About me.</span></h2>
+      </div>
+      <div class="about-grid">
+        <div class="reveal">
+          <p>I’m a junior at the University of Missouri–Columbia studying computer science through the accelerated B.S./M.S. program, with minors in mathematics and biological sciences. I’m interested in the point where computation can make biological questions easier to test.</p>
+          <p>In <strong>Dr. Jianlin Cheng’s lab</strong>, I work on <strong>gene regulatory network inference</strong>. My role includes building data pipelines, quality-control checks, and evaluation tools for graph neural network models. I am a co-first author on a paper currently <strong>under review at ICLR</strong>.</p>
+          <p>I also like systems work: job queues, GPU kernels, and retrieval pipelines. The less visible parts of a project matter to me—clean data, reproducible runs, and results that hold up when someone else tries them.</p>
+        </div>
+        <div class="reveal">
+          <div class="skill-block"><h3>Languages</h3>
+            <ul class="pills"><li>Python</li><li>C/C++</li><li>Java</li><li>SQL</li><li>JavaScript</li><li>Bash</li></ul></div>
+          <div class="skill-block"><h3>Libraries &amp; Frameworks</h3>
+            <ul class="pills"><li>PyTorch</li><li>TensorFlow</li><li>Scikit-learn</li><li>Pandas</li><li>NumPy</li><li>SciPy</li><li>LangChain</li><li>FastAPI</li></ul></div>
+          <div class="skill-block"><h3>Infrastructure</h3>
+            <ul class="pills"><li>Docker</li><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li><li>AWS</li><li>Git</li><li>Linux</li></ul></div>
+          <div class="skill-block"><h3>Focus Areas</h3>
+            <ul class="pills"><li>Gene Regulatory Networks</li><li>Graph Neural Networks</li><li>Single-cell Genomics</li><li>Multi-omics</li></ul></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research and experience -->
   <section class="page" id="research">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head">
         <p class="eyebrow"><span class="idx">03</span> Research &amp; Experience</p>
-        <h2 class="rise"><span>Where the work happens.</span></h2>
+        <h2 class="section-title"><span>Research and industry work.</span></h2>
       </div>
       <div class="timeline">
-        <div class="t-item reveal">
+        <div class="t-item">
           <span class="marker" aria-hidden="true"></span>
           <div class="t-head">
             <h3>Machine Learning Research — Gene Regulatory Network Inference</h3>
@@ -468,13 +222,13 @@ h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
             <span class="t-org">Dr. Jianlin Cheng's Lab · University of Missouri — Columbia</span>
           </div>
           <ul>
-            <li>Architected a multi-source pipeline ingesting, normalizing, and version-controlling genomic datasets from six public repositories into a unified schema spanning 200+ cell types across human and mouse references.</li>
-            <li>Wrote automated QC tooling that benchmarks generated networks against reference standards and gates builds on objective acceptance criteria before training.</li>
-            <li>Built the evaluation harness for GNN link prediction: fixed splits, controlled negative sampling, multi-seed AUROC/AUPRC reporting.</li>
-            <li>Owned the literature-validation agent and multi-omic validation component for a NeurIPS 2026 submission.</li>
+            <li>Built a pipeline that collects, normalizes, and version-controls genomic data from six public repositories. The resulting schema covers more than 200 cell types across human and mouse references.</li>
+            <li>Created automated QC checks that compare generated networks with reference standards before a model enters training.</li>
+            <li>Built the evaluation setup for GNN link prediction, including fixed splits, controlled negative sampling, and multi-seed AUROC/AUPRC reporting.</li>
+            <li>Developed the literature-validation agent and multi-omic validation component for a paper now under review at ICLR.</li>
           </ul>
         </div>
-        <div class="t-item reveal">
+        <div class="t-item">
           <span class="marker" aria-hidden="true"></span>
           <div class="t-head">
             <h3>AI Engineer (Contract)</h3>
@@ -482,67 +236,67 @@ h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
             <span class="t-org">Virtuverse AI · Remote</span>
           </div>
           <ul>
-            <li>Architected and deployed an end-to-end YouTube ingestion pipeline via the Google API and custom scraping, automating knowledge base creation for creator-specific chatbots.</li>
-            <li>Designed the preprocessing, chunking, and embedding workflow backing a RAG pipeline, improving retrieval relevance and grounding.</li>
-            <li>Integrated a vector database with similarity search across 4,000 videos per creator, deployed on AWS EC2.</li>
+            <li>Built and deployed a YouTube ingestion pipeline using the Google API and custom scraping to create knowledge bases for creator-specific chatbots.</li>
+            <li>Set up the preprocessing, chunking, and embedding workflow for the RAG pipeline.</li>
+            <li>Integrated a vector database for similarity search across as many as 4,000 videos per creator and deployed it on AWS EC2.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ============ 5. PUBLICATIONS ============ -->
+  <!-- Publications -->
   <section class="page" id="publications">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head">
         <p class="eyebrow"><span class="idx">04</span> Publications</p>
-        <h2 class="rise"><span>Peer-reviewed work.</span></h2>
+        <h2 class="section-title"><span>Publications and work in progress.</span></h2>
       </div>
-      <div class="pub reveal">
+      <div class="pub">
         <span class="pub-status">Under Review</span>
-        <p class="pub-cite">A. Hedge, <strong>K. Zook</strong>, R. Kim, J. Cheng. “Agent-Based Gene Regulatory Network Inference.” <em>NeurIPS</em>, 2026.</p>
-        <p class="pub-note">Co-first author. Developed the automated literature-validation agent and the multi-omic validation component integrating chromatin accessibility and transcriptomic data.</p>
+        <p class="pub-cite">A. Hedge, <strong>K. Zook</strong>, R. Kim, J. Cheng. “Agent-Based Gene Regulatory Network Inference.” Submitted to <em>ICLR</em>.</p>
+        <p class="pub-note">Co-first author. I worked on the automated literature-validation agent and the multi-omic validation component, which combines chromatin-accessibility and transcriptomic data.</p>
       </div>
-      <div class="pub reveal">
+      <div class="pub">
         <span class="pub-status">In Preparation</span>
         <p class="pub-cite"><strong>K. Zook</strong>, J. Cheng. “A Benchmark for Evaluating Graph-Based Gene Regulatory Network Inference.”</p>
-        <p class="pub-note">First author. Target submission December 2026, with a public dataset release and reproducible evaluation protocols.</p>
+        <p class="pub-note">First author. Planned for submission in December 2026, alongside a public dataset and reproducible evaluation protocol.</p>
       </div>
     </div>
   </section>
 
-  <!-- ============ 6. EDUCATION ============ -->
+  <!-- Education -->
   <section class="page" id="education">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head">
         <p class="eyebrow"><span class="idx">05</span> Education</p>
-        <h2 class="rise"><span>University of Missouri — Columbia</span></h2>
+        <h2 class="section-title"><span>University of Missouri — Columbia</span></h2>
         <p class="section-lede">GPA 3.84 · High Dean's List, all semesters · Mark Twain Scholarship</p>
       </div>
       <div class="edu-grid">
-        <article class="edu reveal">
+        <article class="edu">
           <h3>B.S., Computer Science</h3>
           <p class="org">Aug 2024 – May 2028</p>
           <ul><li>Advanced Algorithm Design</li><li>Object-Oriented Programming</li><li>Mathematical Statistics</li><li>Unix/Linux Systems</li></ul>
         </article>
-        <article class="edu reveal">
+        <article class="edu">
           <h3>Accelerated M.S., Computer Science</h3>
           <p class="org">In progress</p>
           <ul><li>Concentrated in machine learning and algorithms</li></ul>
         </article>
-        <article class="edu reveal">
+        <article class="edu">
           <h3>Minors</h3>
           <p class="org">Mathematics &amp; Biological Sciences</p>
           <ul><li>Discrete Mathematics</li><li>Introduction to Mathematical Statistics</li><li>Coursework supporting computational work on transcriptional regulation</li></ul>
         </article>
       </div>
-      <div class="top-row reveal">
+      <div class="contact-banner"><div><p class="eyebrow">GET IN TOUCH</p><h2>Interested in working together?</h2><p>I’m always glad to hear about research, engineering, and internship opportunities.</p></div><a class="btn btn-primary" href="mailto:kylerzook@gmail.com">Email me <span aria-hidden="true">↗</span></a></div><div class="top-row">
         <a class="btn btn-ghost" href="#hero">↑ Back to top</a>
       </div>
-      <div class="foot-note reveal">
+      <div class="foot-note">
         <span class="small">Kyler Zook · Columbia, Missouri</span>
         <ul class="foot-links">
-          <li><a href="mailto:kylerzook@gmail.com">Email</a></li>
+          <li><a href="mailto:kylerzook@gmail.com">Personal email</a></li><li><a href="mailto:kjz6f3@umsystem.edu">University email</a></li>
           <li><a href="https://github.com/zaykay101111" target="_blank" rel="noopener">GitHub</a></li>
           <li><a href="https://www.linkedin.com/in/kylerzook" target="_blank" rel="noopener">LinkedIn</a></li>
           <li><a href="https://orcid.org/0009-0006-4837-5372" target="_blank" rel="noopener">ORCID</a></li>
@@ -553,99 +307,6 @@ h3{font-size:20px;line-height:1.28;font-weight:600;letter-spacing:-.02em}
 
 </main>
 
-<script>
-(function(){
-"use strict";
-var reduce=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/* Theme */
-var root=document.documentElement, tb=document.getElementById("themeBtn");
-function save(v){try{localStorage.setItem("theme",v);}catch(e){}}
-function read(){try{return localStorage.getItem("theme");}catch(e){return null;}}
-var s=read(); if(s==="light"||s==="dark") root.setAttribute("data-theme",s);
-function isDark(){var t=root.getAttribute("data-theme");
-  return t?t==="dark":window.matchMedia("(prefers-color-scheme: dark)").matches;}
-function icon(){document.getElementById("themeIcon").innerHTML=isDark()
-  ?'<path d="M20 14.5A8.2 8.2 0 0 1 9.5 4 8.3 8.3 0 1 0 20 14.5z"/>'
-  :'<circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M4.2 12H2M22 12h-2.2M6.3 6.3 4.8 4.8M19.2 19.2l-1.5-1.5M17.7 6.3l1.5-1.5M4.8 19.2l1.5-1.5"/>';}
-tb.addEventListener("click",function(){var n=isDark()?"light":"dark";
-  root.setAttribute("data-theme",n);save(n);icon();net.recolor();});
-icon();
-
-/* Reveal */
-var items=document.querySelectorAll(".reveal,.rise");
-if("IntersectionObserver" in window && !reduce){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});},
-    {rootMargin:"0px 0px -6% 0px",threshold:.1});
-  items.forEach(function(el,i){el.style.transitionDelay=(Math.min(i%5,4)*60)+"ms";io.observe(el);});
-} else { items.forEach(function(el){el.classList.add("in");}); }
-
-/* Count-up */
-function count(el){
-  var t=parseFloat(el.dataset.count),d=parseInt(el.dataset.dec||"0",10),
-      sfx=el.dataset.suffix||"",dur=1300,t0=null;
-  if(reduce){el.textContent=t.toFixed(d)+sfx;return;}
-  function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1),e=1-Math.pow(1-p,3);
-    el.textContent=(t*e).toFixed(d)+sfx; if(p<1) requestAnimationFrame(step);}
-  requestAnimationFrame(step);
-}
-var nums=document.querySelectorAll("[data-count]");
-if("IntersectionObserver" in window){
-  var io2=new IntersectionObserver(function(es){es.forEach(function(e){
-    if(e.isIntersecting){count(e.target);io2.unobserve(e.target);}});},{threshold:.5});
-  nums.forEach(function(el){io2.observe(el);});
-} else { nums.forEach(count); }
-
-/* Dot rail active state */
-var links=[].slice.call(document.querySelectorAll(".rail a")),
-    pages=links.map(function(a){return document.querySelector(a.getAttribute("href"));});
-function sync(){
-  var y=window.scrollY+window.innerHeight*.35,i=0;
-  pages.forEach(function(p,k){ if(p && p.offsetTop<=y) i=k; });
-  links.forEach(function(a,k){a.classList.toggle("active",k===i);});
-}
-sync(); window.addEventListener("scroll",sync,{passive:true});
-window.addEventListener("resize",sync);
-
-/* Hero network canvas */
-var net=(function(){
-  var cv=document.getElementById("net"),ctx=cv.getContext("2d"),
-      nodes=[],W=0,H=0,dpr=1,raf=null,nodeCol="#0071e3",edgeCol="rgba(0,0,0,.16)";
-  var LINK=130;
-  function colors(){var cs=getComputedStyle(document.documentElement);
-    nodeCol=(cs.getPropertyValue("--net-node")||"#0071e3").trim();
-    edgeCol=(cs.getPropertyValue("--net-edge")||"rgba(0,0,0,.16)").trim();}
-  function size(){dpr=Math.min(window.devicePixelRatio||1,2);
-    W=cv.clientWidth;H=cv.clientHeight;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
-    ctx.setTransform(dpr,0,0,dpr,0,0);}
-  function build(){nodes=[];var n=Math.max(18,Math.round(46*Math.min(W/1440,1.15)));
-    for(var i=0;i<n;i++){var hub=Math.random()<.15;
-      nodes.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.16,
-        vy:(Math.random()-.5)*.16,r:hub?3.1:1.7,hub:hub});}}
-  function frame(){
-    ctx.clearRect(0,0,W,H);
-    for(var i=0;i<nodes.length;i++){var a=nodes[i];a.x+=a.vx;a.y+=a.vy;
-      if(a.x<-20)a.x=W+20; if(a.x>W+20)a.x=-20; if(a.y<-20)a.y=H+20; if(a.y>H+20)a.y=-20;
-      for(var j=i+1;j<nodes.length;j++){var b=nodes[j],d=Math.hypot(a.x-b.x,a.y-b.y);
-        if(d<LINK){ctx.globalAlpha=(1-d/LINK)*.5;ctx.strokeStyle=edgeCol;ctx.lineWidth=1;
-          ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}}}
-    for(var k=0;k<nodes.length;k++){var p=nodes[k];
-      ctx.globalAlpha=p.hub?.55:.28;ctx.fillStyle=p.hub?nodeCol:edgeCol;
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();}
-    ctx.globalAlpha=1;raf=requestAnimationFrame(frame);
-  }
-  function start(){if(raf===null&&!reduce)raf=requestAnimationFrame(frame);}
-  function stop(){if(raf!==null){cancelAnimationFrame(raf);raf=null;}}
-  colors();size();build(); if(reduce){frame();stop();}else{start();}
-  var rt;window.addEventListener("resize",function(){clearTimeout(rt);
-    rt=setTimeout(function(){size();build();},180);});
-  if("IntersectionObserver" in window){
-    new IntersectionObserver(function(es){es.forEach(function(e){
-      e.isIntersecting?start():stop();});},{threshold:0}).observe(cv);}
-  return {recolor:colors};
-})();
-})();
-</script>
+<script src="portfolio.js" defer></script>
 </body>
 </html>
