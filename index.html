@@ -105,13 +105,22 @@
 
         <article class="card" data-category="ml systems">
           <p class="num">01 / ML INFRASTRUCTURE</p>
-          <h3>GRN-Bench — Distributed Benchmark Platform</h3>
-          <p>A self-hosted platform for running graph ML experiments as queued jobs. I built it to handle repeated submissions, worker failures, and multi-seed runs without corrupting results.</p>
-          <div class="mini-stats">
-            <div><span class="n">35ms</span><span class="l">p95, from 1.2 s</span></div>
-            <div><span class="n">1.8M</span><span class="l">metric rows</span></div>
-            <div><span class="n">47→12</span><span class="l">GB deduplicated</span></div>
-            <div><span class="n">2.5h</span><span class="l">sweep, from 14 h</span></div>
+          <h3>Distributed Experiment Platform for Graph ML</h3>
+          <p>A self-hosted platform that runs graph ML experiments as queued jobs, built to survive repeated submissions and worker failures without corrupting results. Part of ongoing, unpublished research.</p>
+          <div class="card-vis">
+            <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Jobs enter a queue, are picked up by parallel workers, and results are written to one store">
+              <defs><marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
+              <g color="var(--muted)">
+                <rect class="bx" x="1" y="33" width="56" height="26" rx="7"/><text class="lbl" x="29" y="49" text-anchor="middle">jobs</text>
+                <line class="arw-l" x1="57" y1="46" x2="71" y2="46" marker-end="url(#a1)"/>
+                <rect class="bx" x="75" y="33" width="56" height="26" rx="7"/><text class="lbl" x="103" y="49" text-anchor="middle">queue</text>
+                <line class="arw-l" x1="131" y1="42" x2="151" y2="18" marker-end="url(#a1)"/><line class="arw-l" x1="131" y1="46" x2="151" y2="46" marker-end="url(#a1)"/><line class="arw-l" x1="131" y1="50" x2="151" y2="74" marker-end="url(#a1)"/>
+                <rect class="bx" x="155" y="6" width="56" height="22" rx="7"/><rect class="bx" x="155" y="35" width="56" height="22" rx="7"/><rect class="bx" x="155" y="64" width="56" height="22" rx="7"/>
+                <text class="lbl" x="183" y="20" text-anchor="middle">worker</text><text class="lbl" x="183" y="49" text-anchor="middle">worker</text><text class="lbl" x="183" y="78" text-anchor="middle">worker</text>
+                <line class="arw-l" x1="211" y1="17" x2="231" y2="42" marker-end="url(#a1)"/><line class="arw-l" x1="211" y1="46" x2="231" y2="46" marker-end="url(#a1)"/><line class="arw-l" x1="211" y1="75" x2="231" y2="50" marker-end="url(#a1)"/>
+                <rect class="bx-a" x="235" y="33" width="64" height="26" rx="7"/><text class="lbl-a" x="267" y="49" text-anchor="middle">results DB</text>
+              </g>
+            </svg>
           </div>
           <ul class="stack"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>Celery</li><li>Docker</li></ul>
           <a class="btn-text card-link" href="https://github.com/kylerzook" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
@@ -242,7 +251,7 @@
           <ul>
             <li>Built a pipeline that collects, normalizes, and version-controls genomic data from six public repositories. The resulting schema covers more than 200 cell types across human and mouse references.</li>
             <li>Created automated QC checks that compare generated networks with reference standards before a model enters training.</li>
-            <li>Built the evaluation setup for GNN link prediction, including fixed splits, controlled negative sampling, and multi-seed AUROC/AUPRC reporting.</li>
+            <li>Built evaluation tooling for the lab’s graph neural network models.</li>
             <li>Developed the literature-validation agent and multi-omic validation component for a paper accepted to <em>NeurIPS</em> 2026.</li>
           </ul>
         </div>
