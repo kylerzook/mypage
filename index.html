@@ -274,11 +274,42 @@
         <span class="pub-status is-accepted">Accepted</span>
         <p class="pub-cite">A. Hegde, <strong>K. Zook</strong>, Y. Wang, J. Cheng. “Multimodal graph reasoning for gene regulatory network inference.” <em>NeurIPS</em> 2026.</p>
         <p class="pub-note">Co-first author. I worked on the automated literature-validation agent and the multi-omic validation component, which combines chromatin-accessibility and transcriptomic data.</p>
+        <div class="pub-links"><a class="pub-link" href="https://github.com/BioinfoMachineLearning/EviGRN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>Code: EviGRN <span aria-hidden="true">↗</span></a></div>
+        <figure class="card-vis pub-fig">
+          <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Expression, accessibility, and motif evidence feed a transcription-factor-centred graph model; predictions are then checked against the literature">
+            <defs><marker id="a5" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
+            <g color="var(--muted)">
+              <rect class="bx" x="1" y="4" width="70" height="20" rx="5"/><rect class="bx" x="1" y="32" width="70" height="20" rx="5"/><rect class="bx bx-miss" x="1" y="60" width="70" height="20" rx="5"/>
+              <text class="lbl" x="36" y="17" text-anchor="middle">expression</text><text class="lbl" x="36" y="45" text-anchor="middle">accessibility</text><text class="lbl" x="36" y="73" text-anchor="middle">motif</text>
+              <line class="arw-l" x1="73" y1="14" x2="110" y2="40" marker-end="url(#a5)"/><line class="arw-l" x1="73" y1="42" x2="110" y2="46" marker-end="url(#a5)"/><line class="arw-l" x1="73" y1="70" x2="110" y2="52" marker-end="url(#a5)"/>
+              <line class="edge" x1="128" y1="46" x2="166" y2="22"/><line class="edge" x1="128" y1="46" x2="172" y2="46"/><line class="edge" x1="128" y1="46" x2="166" y2="70"/>
+              <circle class="nd-a" cx="128" cy="46" r="8"/><circle class="nd" cx="166" cy="22" r="4"/><circle class="nd" cx="172" cy="46" r="4"/><circle class="nd" cx="166" cy="70" r="4"/>
+              <text class="lbl" x="150" y="90" text-anchor="middle">TF-centred graph</text>
+              <line class="arw-l" x1="182" y1="46" x2="216" y2="46" marker-end="url(#a5)"/>
+              <rect class="bx-a" x="220" y="33" width="78" height="26" rx="5"/>
+              <text class="lbl-a" x="259" y="49" text-anchor="middle">literature check</text>
+            </g>
+          </svg>
+        </figure>
       </div>
       <div class="pub">
         <span class="pub-status">In Preparation</span>
         <p class="pub-cite"><strong>K. Zook</strong>, J. Cheng. “A Benchmark for Evaluating Graph-Based Gene Regulatory Network Inference.”</p>
-        <p class="pub-note">First author. Planned for submission in December 2026, alongside a public dataset and reproducible evaluation protocol.</p>
+        <p class="pub-note">First author. Planned for submission in December 2026.</p>
+        <figure class="card-vis pub-fig">
+          <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Several inference methods pass through one shared evaluation and come out as comparable results">
+            <defs><marker id="a6" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
+            <g color="var(--muted)">
+              <circle class="nd" cx="24" cy="16" r="5"/><circle class="nd" cx="24" cy="36" r="5"/><circle class="nd" cx="24" cy="56" r="5"/><circle class="nd" cx="24" cy="76" r="5"/>
+              <line class="arw-l" x1="32" y1="16" x2="100" y2="40" marker-end="url(#a6)"/><line class="arw-l" x1="32" y1="36" x2="100" y2="44" marker-end="url(#a6)"/><line class="arw-l" x1="32" y1="56" x2="100" y2="48" marker-end="url(#a6)"/><line class="arw-l" x1="32" y1="76" x2="100" y2="52" marker-end="url(#a6)"/>
+              <rect class="bx-a" x="104" y="31" width="92" height="30" rx="5"/>
+              <text class="lbl-a" x="150" y="49" text-anchor="middle">shared evaluation</text>
+              <line class="arw-l" x1="198" y1="46" x2="226" y2="46" marker-end="url(#a6)"/>
+              <rect class="bx" x="232" y="22" width="64" height="10" rx="3"/><rect class="bx" x="232" y="36" width="50" height="10" rx="3"/><rect class="bx" x="232" y="50" width="38" height="10" rx="3"/><rect class="bx" x="232" y="64" width="26" height="10" rx="3"/>
+              <text class="lbl" x="24" y="91" text-anchor="middle">methods</text><text class="lbl" x="298" y="91" text-anchor="end">comparable results</text>
+            </g>
+          </svg>
+        </figure>
       </div>
     </div>
   </section>
