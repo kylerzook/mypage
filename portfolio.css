@@ -1269,3 +1269,8 @@ strong {
     animation:none !important;
   }
 }
+
+.pub-wt {
+  color:var(--muted);
+  font-size:var(--fs-sm);
+}
