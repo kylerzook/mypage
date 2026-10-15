@@ -939,13 +939,13 @@ strong {
 }
 .pub-status.in-review {
   border-color:var(--review);
-  background:transparent;
+  background:color-mix(in srgb, var(--review) 14%, transparent);
   color:var(--review);
 }
 
 .pub-status.is-accepted {
   border-color:var(--accent);
-  background:transparent;
+  background:color-mix(in srgb, var(--accent) 14%, transparent);
   color:var(--accent);
 }
 
