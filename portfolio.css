@@ -12,7 +12,7 @@
   --text:#202e42;
   --muted:#5c6170;
   --accent:#2f6b4f;
-  --review:#f8de7e;
+  --review:#9a6a0b;
   --accent-hover:#24563f;
   --line:#dfdad2;
   --graph:#647a96;
@@ -64,6 +64,7 @@
   --text:#f3ede3;
   --muted:#b5bfcd;
   --accent:#8fcaa9;
+  --review:#f8de7e;
   --accent-hover:#b0dcc3;
   --line:#344055;
   --graph:#91aac9;
@@ -78,6 +79,7 @@
     --text:#f3ede3;
     --muted:#b5bfcd;
     --accent:#8fcaa9;
+    --review:#f8de7e;
     --accent-hover:#b0dcc3;
     --line:#344055;
     --graph:#91aac9;
