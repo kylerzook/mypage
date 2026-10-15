@@ -12,6 +12,7 @@
   --text:#202e42;
   --muted:#5c6170;
   --accent:#2f6b4f;
+  --review:#f8de7e;
   --accent-hover:#24563f;
   --line:#dfdad2;
   --graph:#647a96;
@@ -933,6 +934,11 @@ strong {
   border-radius:var(--r-sm);
   background:var(--surface-2);
   color:var(--muted);
+}
+.pub-status.in-review {
+  border-color:var(--review);
+  background:transparent;
+  color:var(--review);
 }
 
 .pub-status.is-accepted {
