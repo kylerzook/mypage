@@ -35,11 +35,9 @@ a{color:#e8c66a}a:hover{color:#fff1c4}
 @keyframes sheen{from{background-position:120% 0}to{background-position:-40% 0}}
 @keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
 @keyframes mist{0%{transform:translateX(-8%)}50%{transform:translateX(8%)}100%{transform:translateX(-8%)}}
-@keyframes ember{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-420px) translateX(40px);opacity:0}}
 @keyframes glint{0%,100%{opacity:.5}50%{opacity:1}}
 .load{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
 .mist{animation:mist 24s ease-in-out infinite}
-.ember{position:absolute;width:5px;height:5px;border-radius:50%;background:#ffd98a;box-shadow:0 0 10px 3px rgba(255,200,110,.7);animation:ember 9s linear infinite}
 .glint{animation:glint 3s ease-in-out infinite}
 .rune{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,background .25s}
 .rune:hover{transform:translateY(-4px) rotate(-1deg);background:#fff6dc;box-shadow:0 6px 16px rgba(122,90,34,.35)}
@@ -62,10 +60,6 @@ a{color:#e8c66a}a:hover{color:#fff1c4}
     <div aria-hidden="true" class="mist" style="position: absolute; left: -10%; right: -10%; top: 46%; height: 220px; background: radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255,246,220,.28), rgba(255,246,220,0) 70%); filter: blur(10px)"></div>
     <div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(12,16,12,.28)"></div>
     <div aria-hidden="true" style="position: absolute; left: 0; right: 0; bottom: 0; height: 260px; background: linear-gradient(rgba(21,26,20,0), #151a14)"></div>
-    <span class="ember" aria-hidden="true" style="left: 18%; bottom: 8%"></span>
-    <span class="ember" aria-hidden="true" style="left: 41%; bottom: 4%; animation-delay: -3s"></span>
-    <span class="ember" aria-hidden="true" style="left: 63%; bottom: 10%; animation-delay: -6s"></span>
-    <span class="ember" aria-hidden="true" style="left: 82%; bottom: 6%; animation-delay: -1.5s"></span>
     <div style="position: relative; z-index: 2; max-width: 1260px; margin: 0 auto; padding: 0 24px">
       <header class="load" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 24px 0">
         <a href="./" style="font-family: 'IBM Plex Mono', monospace; font-size: 14px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; color: #fff6dc">← kz. / notebook</a>
@@ -312,6 +306,6 @@ a{color:#e8c66a}a:hover{color:#fff1c4}
     </footer>
   </div>
 </div>
-<script src="assets/site.js?v=2c2b9d4a" defer></script>
+<script src="assets/site.js?v=75f540e2" defer></script>
 </body>
 </html>
