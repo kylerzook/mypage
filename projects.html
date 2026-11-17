@@ -3,21 +3,21 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Projects — Kyler Zook</title>
+<title>Projects | Kyler Zook</title>
 <meta name="description" content="Selected builds: a distributed ML experiment platform, Triton kernels for GNNs, a creator RAG platform and a Redis-style key-value store.">
 <meta name="author" content="Kyler Zook">
 <link rel="canonical" href="https://www.kylerzook.com/projects.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kyler Zook">
-<meta property="og:title" content="Projects — Kyler Zook">
+<meta property="og:title" content="Projects | Kyler Zook">
 <meta property="og:description" content="Selected builds: a distributed ML experiment platform, Triton kernels for GNNs, a creator RAG platform and a Redis-style key-value store.">
 <meta property="og:url" content="https://www.kylerzook.com/projects.html">
-<meta property="og:image" content="https://www.kylerzook.com/og-image.png?v=943b0782">
+<meta property="og:image" content="https://www.kylerzook.com/og-image.png?v=14fc2f7a">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="favicon.svg?v=05bfae7c" type="image/svg+xml">
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=b8648a87">
+<link rel="icon" href="favicon.svg?v=165abeb1" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=525a7639">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yellowtail&amp;family=Playfair+Display:ital,wght@0,700;0,900;1,500&amp;family=Inter:wght@400;500&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap">
@@ -32,10 +32,10 @@ a{color:#ffe7c2}a:hover{color:#f0a050}
 .neon{color:#ffe0b8;animation:flicker 5s linear infinite}
 .breathe{animation:breathe 5s ease-in-out infinite}
 .smoke{animation:smoke 14s ease-out infinite}
-.set{transition:background .4s,transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s}
-.set:hover{background:rgba(240,160,80,.10);transform:translateX(10px);box-shadow:-6px 0 0 #f0a050}
-.set .num{transition:color .4s,text-shadow .4s}
-.set:hover .num{color:#ffe0b8;text-shadow:0 0 14px #ff7a2a}
+.proj{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s,border-color .4s,background .4s}
+.proj:hover{transform:translateY(-6px);border-color:#f0a050;background:rgba(240,160,80,.08);box-shadow:0 18px 40px rgba(0,0,0,.45),0 0 0 1px #f0a050}
+.proj .num{transition:background .4s,color .4s,box-shadow .4s}
+.proj:hover .num{background:#f0a050;color:#120804;box-shadow:0 0 16px rgba(255,140,60,.7)}
 .muso{display:block;pointer-events:none;outline:none}
 .muso img{pointer-events:none;display:block;transition:filter .35s}
 .muso .hit{position:absolute;pointer-events:auto;cursor:pointer}
@@ -56,24 +56,24 @@ a{color:#ffe7c2}a:hover{color:#f0a050}
 </style>
 </head>
 <body>
-<div style="min-height: 2700px; background: #120804; color: #ffe7c2; font-family: Inter, system-ui, sans-serif; overflow: hidden">
+<div style="background: #120804; color: #ffe7c2; font-family: Inter, system-ui, sans-serif; overflow: hidden">
   <section style="position: relative; min-height: 900px; overflow: hidden">
     <div style="position: absolute; left: 0; right: 0; bottom: 0; aspect-ratio: 1.6; transition: transform .6s ease-out; transform: translate(calc(var(--mx, 0) * -18px), calc(var(--my, 0) * -10px)) scale(1.03)">
       <img src="assets/img/jazz-stage.jpg?v=89dc6b6c" alt="" aria-hidden="true" style="position: absolute; inset: 0; width: 100%; height: 100%">
-      <a class="muso buddy" href="https://www.youtube.com/watch?v=EeyyGmd5dvM&amp;list=RDEeyyGmd5dvM&amp;start_radio=1" aria-label="Buddy Rich — play my favourite Buddy Rich track on YouTube" style="position: absolute; left: 32.06%; top: 49.60%; width: 51.88%; height: 50.40%; z-index: 1">
+      <a class="muso buddy" href="https://www.youtube.com/watch?v=EeyyGmd5dvM&amp;list=RDEeyyGmd5dvM&amp;start_radio=1" aria-label="Buddy Rich · play my favourite Buddy Rich track on YouTube" style="position: absolute; left: 32.06%; top: 49.60%; width: 51.88%; height: 50.40%; z-index: 1">
         <img src="assets/img/jazz-buddy.png?v=59b1de34" alt="" style="width: 100%; height: 100%; transform-origin: 40% 100%">
         <span class="hit" style="left: 18%; width: 43%; top: 0; height: 100%"></span>
-        <span class="tag" style="left: 26%; top: 2%">♪ Buddy Rich — my pick ↗</span>
+        <span class="tag" style="left: 26%; top: 2%">♪ Buddy Rich · my pick ↗</span>
       </a>
-      <a class="muso mingus" href="https://youtu.be/jOaCrz43Sjk?si=3TqPIzHMc9rZ_FS9" aria-label="Charles Mingus — play my favourite Mingus track on YouTube" style="position: absolute; left: 0.00%; top: 13.00%; width: 41.38%; height: 87.00%; z-index: 2">
+      <a class="muso mingus" href="https://youtu.be/jOaCrz43Sjk?si=3TqPIzHMc9rZ_FS9" aria-label="Charles Mingus · play my favourite Mingus track on YouTube" style="position: absolute; left: 0.00%; top: 13.00%; width: 41.38%; height: 87.00%; z-index: 2">
         <img src="assets/img/jazz-mingus.png?v=123cda94" alt="" style="width: 100%; height: 100%; transform-origin: 45% 100%">
         <span class="hit" style="left: 10%; width: 67%; top: 0; height: 100%"></span>
-        <span class="tag" style="left: 32%; top: 2%">♪ Charles Mingus — my pick ↗</span>
+        <span class="tag" style="left: 32%; top: 2%">♪ Charles Mingus · my pick ↗</span>
       </a>
-      <a class="muso miles" href="https://www.youtube.com/watch?v=tQW_ZQV_ZTc&amp;list=OLAK5uy_mPtHyMAFm7ISF_MKniyO20N6oNR5T964U" aria-label="Miles Davis — play my favourite Miles Davis track on YouTube" style="position: absolute; left: 64.31%; top: 27.80%; width: 24.75%; height: 72.20%; z-index: 3">
+      <a class="muso miles" href="https://www.youtube.com/watch?v=tQW_ZQV_ZTc&amp;list=OLAK5uy_mPtHyMAFm7ISF_MKniyO20N6oNR5T964U" aria-label="Miles Davis · play my favourite Miles Davis track on YouTube" style="position: absolute; left: 64.31%; top: 27.80%; width: 24.75%; height: 72.20%; z-index: 3">
         <img src="assets/img/jazz-miles.png?v=c80d98cb" alt="" style="width: 100%; height: 100%; transform-origin: 60% 100%">
         <span class="hit" style="left: 0; width: 100%; top: 0; height: 100%"></span>
-        <span class="tag" style="left: -10%; top: -6%">♪ Miles Davis — my pick ↗</span>
+        <span class="tag" style="left: -10%; top: -6%">♪ Miles Davis · my pick ↗</span>
       </a>
     </div>
     <div aria-hidden="true" class="breathe" style="position: absolute; inset: 0; background: radial-gradient(ellipse 45% 40% at 47% 42%, rgba(255,150,60,.35), rgba(255,150,60,0) 70%); pointer-events: none"></div>
@@ -93,72 +93,68 @@ a{color:#ffe7c2}a:hover{color:#f0a050}
       <div style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding-top: 110px">
         <p class="load" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .32em; color: #f0a050; animation-delay: .2s">LIVE IN THE CELLAR · TONIGHT</p>
         <h1 class="neon" style="margin: 0; font-family: Yellowtail, cursive; font-weight: 400; font-size: clamp(80px, 11vw, 168px); line-height: 1">Selected Works</h1>
-        <p class="load" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 26px; color: #ffe7c2; animation-delay: .7s">the Kyler Zook quartet — four builds, no charts</p>
+        <p class="load" style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 26px; color: #ffe7c2; animation-delay: .7s">four projects, played live</p>
       </div>
     </div>
   </section>
-  <section style="max-width: 1100px; margin: 0 auto; padding: 40px 24px 40px">
-    <div class="reveal" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid #f0a050; padding-bottom: 14px; margin-bottom: 8px">
-      <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 56px; letter-spacing: .02em; text-transform: uppercase">Set list</h2>
+  <section style="max-width: 1180px; margin: 0 auto; padding: 48px 24px 88px">
+    <div class="reveal" style="display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 12px; border-bottom: 2px solid #f0a050; padding-bottom: 14px; margin-bottom: 36px">
+      <h2 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 56px; letter-spacing: .01em">My Projects</h2>
+      <span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .14em; color: #f0a050">4 BUILDS</span>
     </div>
-    <ol style="margin: 0; padding: 0; list-style: none">
-        <li class="reveal">
-          <article class="set" style="display: flex; flex-wrap: wrap; gap: 12px 36px; padding: 36px 20px; border-bottom: 1px solid rgba(240,160,80,.35)">
-            <span class="num" style="flex: 0 0 110px; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 84px; line-height: .9; color: #8a3a16">I</span>
-            <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #f0a050">ML INFRASTRUCTURE</span>
-              <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 38px; line-height: 1.05">Distributed ML Experiment Platform</h3>
-              <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6; max-width: 58ch">Runs ML experiments as queued jobs, built to survive repeated submissions and worker crashes without corrupting results.</p>
-              <p style="margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 18px; color: #f0a050">featuring Python, FastAPI, PostgreSQL, Redis, Celery &amp; Docker</p>
-              <a class="btn" href="https://github.com/kylerzook" style="align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px">listen on GitHub ↗</a>
-            </div>
-          </article>
-        </li>
-        <li class="reveal">
-          <article class="set" style="display: flex; flex-wrap: wrap; gap: 12px 36px; padding: 36px 20px; border-bottom: 1px solid rgba(240,160,80,.35)">
-            <span class="num" style="flex: 0 0 110px; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 84px; line-height: .9; color: #8a3a16">II</span>
-            <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #f0a050">GPU COMPUTING</span>
-              <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 38px; line-height: 1.05">Custom Triton Kernels for GNNs</h3>
-              <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6; max-width: 58ch">Fused GPU kernels for the sparse message passing inside graph neural networks, to cut memory traffic and launch overhead.</p>
-              <p style="margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 18px; color: #f0a050">featuring Triton, PyTorch &amp; CUDA</p>
-              <a class="btn" href="https://github.com/kylerzook" style="align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px">listen on GitHub ↗</a>
-            </div>
-          </article>
-        </li>
-        <li class="reveal">
-          <article class="set" style="display: flex; flex-wrap: wrap; gap: 12px 36px; padding: 36px 20px; border-bottom: 1px solid rgba(240,160,80,.35)">
-            <span class="num" style="flex: 0 0 110px; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 84px; line-height: .9; color: #8a3a16">III</span>
-            <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #f0a050">APPLIED AI</span>
-              <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 38px; line-height: 1.05">Creator Knowledge Base &amp; RAG</h3>
-              <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6; max-width: 58ch">Turns YouTube captions and transcripts into searchable knowledge bases, up to 4,000 videos per creator.</p>
-              <p style="margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 18px; color: #f0a050">featuring Python, LangChain, Ollama &amp; AWS</p>
-              <a class="btn" href="https://github.com/kylerzook" style="align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px">listen on GitHub ↗</a>
-            </div>
-          </article>
-        </li>
-        <li class="reveal">
-          <article class="set" style="display: flex; flex-wrap: wrap; gap: 12px 36px; padding: 36px 20px; border-bottom: 1px solid rgba(240,160,80,.35)">
-            <span class="num" style="flex: 0 0 110px; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 84px; line-height: .9; color: #8a3a16">IV</span>
-            <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 10px">
-              <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; color: #f0a050">SYSTEMS</span>
-              <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 38px; line-height: 1.05">Redis-Style Key-Value Store</h3>
-              <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6; max-width: 58ch">An in-memory store built from the socket up, with its own memory pool and a multithreaded TCP path for SET and GET.</p>
-              <p style="margin: 4px 0 0; font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 18px; color: #f0a050">featuring C++, TCP sockets &amp; multithreading</p>
-              <a class="btn" href="https://github.com/kylerzook" style="align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 13px">listen on GitHub ↗</a>
-            </div>
-          </article>
-        </li>
-    </ol>
-  </section>
-  <section class="reveal" style="max-width: 1100px; margin: 0 auto; padding: 56px 24px 72px">
-    <h2 style="margin: 0 0 6px; font-family: Yellowtail, cursive; font-weight: 400; font-size: 64px; color: #ffe0b8">after the break…</h2>
-    <p style="margin: 0 0 28px; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .14em; color: #f0a050">STILL REHEARSING</p>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px">
-      <div class="set" style="flex: 1 1 280px; min-width: 0; border: 1px solid rgba(240,160,80,.45); padding: 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 24px">Optimal-transport flow matching</span><span style="font-size: 15px; color: #ecd6b6">generative modeling framework</span></div>
-      <div class="set" style="flex: 1 1 280px; min-width: 0; border: 1px solid rgba(240,160,80,.45); padding: 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 24px">GRNAgent v2</span><span style="font-size: 15px; color: #ecd6b6">query-driven agent for GRN questions</span></div>
-      <div class="set" style="flex: 1 1 280px; min-width: 0; border: 1px solid rgba(240,160,80,.45); padding: 22px; display: flex; flex-direction: column; gap: 6px"><span style="font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 24px">IREC payload firmware</span><span style="font-size: 15px; color: #ecd6b6">ESP32-S3 · FreeRTOS · IMU drivers</span></div>
+    <div style="display: flex; flex-wrap: wrap; gap: 28px">
+      <article class="proj reveal" style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 30px 30px 26px; border: 1px solid rgba(240,160,80,.4); border-radius: 16px; background: rgba(255,231,194,.035)">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span class="num" style="width: 46px; height: 46px; flex: none; display: grid; place-items: center; border: 1.5px solid #f0a050; border-radius: 50%; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 18px; color: #f0a050">I</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #f0a050">Project I · ML infrastructure</span>
+        </div>
+        <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 32px; line-height: 1.1">Distributed ML Experiment Platform</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6">Runs ML experiments as queued jobs, built to survive repeated submissions and worker crashes without corrupting results.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; color: #b98a5a">BUILT WITH</span>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px"><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Python</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">FastAPI</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">PostgreSQL</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Redis</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Celery</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Docker</li></ul>
+        </div>
+        <a class="btn" href="https://github.com/kylerzook" style="margin-top: auto; align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border-radius: 999px; background: #f0a050; color: #120804; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500">View on GitHub ↗</a>
+      </article>
+      <article class="proj reveal" style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 30px 30px 26px; border: 1px solid rgba(240,160,80,.4); border-radius: 16px; background: rgba(255,231,194,.035)">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span class="num" style="width: 46px; height: 46px; flex: none; display: grid; place-items: center; border: 1.5px solid #f0a050; border-radius: 50%; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 18px; color: #f0a050">II</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #f0a050">Project II · GPU computing</span>
+        </div>
+        <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 32px; line-height: 1.1">Custom Triton Kernels for GNNs</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6">Fused GPU kernels for the sparse message passing inside graph neural networks, to cut memory traffic and launch overhead.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; color: #b98a5a">BUILT WITH</span>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px"><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Triton</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">PyTorch</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">CUDA</li></ul>
+        </div>
+        <a class="btn" href="https://github.com/kylerzook" style="margin-top: auto; align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border-radius: 999px; background: #f0a050; color: #120804; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500">View on GitHub ↗</a>
+      </article>
+      <article class="proj reveal" style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 30px 30px 26px; border: 1px solid rgba(240,160,80,.4); border-radius: 16px; background: rgba(255,231,194,.035)">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span class="num" style="width: 46px; height: 46px; flex: none; display: grid; place-items: center; border: 1.5px solid #f0a050; border-radius: 50%; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 18px; color: #f0a050">III</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #f0a050">Project III · Applied AI</span>
+        </div>
+        <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 32px; line-height: 1.1">Creator Knowledge Base &amp; RAG</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6">Turns YouTube captions and transcripts into searchable knowledge bases, up to 4,000 videos per creator.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; color: #b98a5a">BUILT WITH</span>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px"><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Python</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">LangChain</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Ollama</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">AWS</li></ul>
+        </div>
+        <a class="btn" href="https://github.com/kylerzook" style="margin-top: auto; align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border-radius: 999px; background: #f0a050; color: #120804; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500">View on GitHub ↗</a>
+      </article>
+      <article class="proj reveal" style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 14px; padding: 30px 30px 26px; border: 1px solid rgba(240,160,80,.4); border-radius: 16px; background: rgba(255,231,194,.035)">
+        <div style="display: flex; align-items: center; gap: 14px">
+          <span class="num" style="width: 46px; height: 46px; flex: none; display: grid; place-items: center; border: 1.5px solid #f0a050; border-radius: 50%; font-family: 'Playfair Display', Georgia, serif; font-weight: 900; font-size: 18px; color: #f0a050">IV</span>
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #f0a050">Project IV · Systems</span>
+        </div>
+        <h3 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; font-size: 32px; line-height: 1.1">Redis-Style Key-Value Store</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #ecd6b6">An in-memory store built from the socket up, with its own memory pool and a multithreaded TCP path for SET and GET.</p>
+        <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 4px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .16em; color: #b98a5a">BUILT WITH</span>
+          <ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px"><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">C++</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">TCP sockets</li><li style="padding: 5px 12px; border: 1px solid rgba(240,160,80,.55); border-radius: 999px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #ffe7c2">Multithreading</li></ul>
+        </div>
+        <a class="btn" href="https://github.com/kylerzook" style="margin-top: auto; align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; gap: 8px; padding: 0 18px; border-radius: 999px; background: #f0a050; color: #120804; text-decoration: none; font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 500">View on GitHub ↗</a>
+      </article>
     </div>
   </section>
   <footer style="max-width: 1100px; margin: 0 auto; padding: 24px 24px 48px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; border-top: 1px solid rgba(240,160,80,.35); font-family: 'IBM Plex Mono', monospace; font-size: 13px">
@@ -166,6 +162,6 @@ a{color:#ffe7c2}a:hover{color:#f0a050}
     <a class="btn" href="about.html" style="min-height: 44px; display: inline-flex; align-items: center">next: About →</a>
   </footer>
 </div>
-<script src="assets/site.js?v=75f540e2" defer></script>
+<script src="assets/site.js?v=2c2b9d4a" defer></script>
 </body>
 </html>
