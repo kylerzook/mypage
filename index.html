@@ -1,441 +1,169 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kyler Zook — Machine Learning &amp; Computational Biology</title>
-<meta name="theme-color" content="#f8f5f0" />
-<link rel="canonical" href="https://www.kylerzook.com/" />
-<script>try{const t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t;}catch(e){}</script>
-<meta name="description" content="Kyler Zook — machine learning for gene regulatory network inference: models that learn how genes regulate one another, and how to tell when they are right." />
-<meta name="author" content="Kyler Zook" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Kyler Zook" />
-<meta property="og:title" content="Kyler Zook — Machine Learning &amp; Computational Biology" />
-<meta property="og:description" content="Undergraduate researcher at the University of Missouri building machine learning models for gene regulatory network inference." />
-<meta property="og:url" content="https://www.kylerzook.com/" />
-<meta property="og:image" content="https://www.kylerzook.com/og-image.png?v=943b0782" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Kyler Zook — Machine learning for questions in biology." />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Kyler Zook — Machine Learning &amp; Computational Biology" />
-<meta name="twitter:description" content="Machine learning for gene regulatory network inference: models that learn how genes regulate one another, and how to tell when they are right." />
-<meta name="twitter:image" content="https://www.kylerzook.com/og-image.png?v=943b0782" />
-<link rel="icon" href="favicon.svg?v=05bfae7c" type="image/svg+xml" />
-<link rel="apple-touch-icon" href="apple-touch-icon.png?v=b8648a87" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" />
-<link rel="stylesheet" href="portfolio.css?v=17e50e77" />
+<meta name="description" content="Kyler Zook — machine learning for gene regulatory network inference: models that learn how genes regulate one another, and how to tell when they are right.">
+<meta name="author" content="Kyler Zook">
+<link rel="canonical" href="https://www.kylerzook.com/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Kyler Zook">
+<meta property="og:title" content="Kyler Zook — Machine Learning &amp; Computational Biology">
+<meta property="og:description" content="Kyler Zook — machine learning for gene regulatory network inference: models that learn how genes regulate one another, and how to tell when they are right.">
+<meta property="og:url" content="https://www.kylerzook.com/">
+<meta property="og:image" content="https://www.kylerzook.com/og-image.png?v=943b0782">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg?v=05bfae7c" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=b8648a87">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&amp;family=Caveat:wght@500;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;family=Inter:wght@400;500&amp;family=Cinzel:wght@700&amp;family=Yellowtail&amp;family=EB+Garamond:ital@1&amp;family=Young+Serif&amp;display=swap">
+<style>
+body{margin:0;background:#f6f1e6}
+a{color:#1f3a2e}a:hover{color:#b5562b}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@keyframes drop{0%{opacity:0;transform:translateY(-70px) rotate(-12deg)}60%{opacity:1;transform:translateY(8px) rotate(3deg)}100%{opacity:1;transform:none}}
+@keyframes marq{to{transform:translateX(-50%)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes wiggle{0%,100%{transform:rotate(14deg)}25%{transform:rotate(4deg)}75%{transform:rotate(22deg)}}
+.load{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.letter{display:inline-block;animation:drop .8s cubic-bezier(.2,.8,.2,1) both}
+.marquee{display:flex;width:max-content;animation:marq 32s linear infinite}
+.marquee-wrap:hover .marquee{animation-play-state:paused}
+.pin{animation:bob 2.6s ease-in-out infinite}
+.clip:hover{animation:wiggle .5s ease-in-out 2}
+.row{transition:transform .35s cubic-bezier(.2,.7,.2,1),color .2s}
+.row:hover{transform:translateX(14px);color:#b5562b}
+.row .sw{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.row:hover .sw{transform:rotate(-8deg) scale(1.2)}
+.row .ul{display:block;height:2px;background:#b5562b;transform:scaleX(0);transform-origin:left;transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+.row:hover .ul{transform:scaleX(1)}
+.lift{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.lift:hover{transform:translateY(-10px) rotate(-1.2deg);box-shadow:10px 14px 0 rgba(28,26,23,.22)}
+.btn{transition:transform .25s cubic-bezier(.2,.7,.2,1)}
+.btn:hover{transform:translateY(-3px) scale(1.03)}
+.tab svg{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.tab:hover svg{transform:rotate(-12deg) scale(1.18)}
+.row:hover .sw svg{transform:none}
+@supports (animation-timeline: view()){.reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% cover 30%}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="wrap header-inner">
-  <a class="wordmark" href="#hero" aria-label="Kyler Zook, home">kz<span>.</span></a>
-  <nav class="site-nav" aria-label="Main navigation">
-    <a href="#publications">Publications</a><a href="#projects">Work</a><a href="#about">About</a><a href="#research">Experience</a><a href="#education">Education</a>
-  </nav>
-  <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme" title="Switch theme"><svg viewBox="0 0 24 24" id="themeIcon" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l2 2m10 10 2 2M5 19l2-2M17 7l2-2"/></svg></button>
-</div><div class="reading-progress" aria-hidden="true"></div></header>
-
-<main id="main" tabindex="-1">
-
-  <section class="page hero" id="hero" aria-labelledby="hero-title">
-    <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <p class="eyebrow">MACHINE LEARNING &amp; COMPUTATIONAL BIOLOGY</p>
-        <h1 id="hero-title">Kyler Zook<span class="accent">.</span></h1>
-        <p class="hero-statement">Machine learning for<br>questions in biology.</p>
-        <p class="hero-description">I build machine learning models that infer how genes regulate one another, and the evaluation that shows whether those inferences hold up.</p>
-        <div class="cta-row"><a class="btn btn-primary" href="#projects">Explore my work <span aria-hidden="true">↓</span></a><a class="btn btn-ghost" href="mailto:kylerzook@gmail.com">Get in touch <span aria-hidden="true">↗</span></a></div>
-        <div class="hero-meta"><span class="status"><span>Socials</span><div class="socials">
-          <a href="https://github.com/kylerzook" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-          </a>
-          <a href="https://orcid.org/0009-0006-4837-5372" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID">
-            <svg viewBox="0 0 256 256" aria-hidden="true"><path d="M128 0C57.3 0 0 57.3 0 128s57.3 128 128 128 128-57.3 128-128S198.7 0 128 0zM86.3 186.2H70.9V79.1h15.4v107.1zm-7.7-116.8c-5.5 0-10-4.5-10-10s4.5-10 10-10 10 4.5 10 10-4.5 10-10 10zm101.1 116.8h-42.8V79.1h41.6c39.6 0 57 28.3 57 53.6 0 27.5-21.5 53.5-55.8 53.5zm-1.2-93.2h-26.2v79.3h25.6c34.9 0 42.9-26.5 42.9-39.7 0-21.5-13.7-39.6-42.3-39.6z"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/kylerzook" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          </a>
-        </div></div>
-      </div>
-      <figure class="network-panel" data-view="network">
-        <div class="panel-heading"><span>RESEARCH NOTEBOOK</span><span>01 / GRN</span></div>
-        <svg class="network-art" viewBox="0 0 440 350" role="img" aria-labelledby="network-title"><title id="network-title">An illustrative gene regulatory network, connecting genes across biological pathways</title>
-          <defs><pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="currentColor" opacity=".14"/></pattern></defs>
-          <rect width="440" height="350" fill="url(#grid)"/>
-          <g class="network-orbits" fill="none"><circle cx="220" cy="175" r="128"/><circle cx="220" cy="175" r="84"/></g>
-          <g class="network-lines"><path d="M70 117 151 72 222 139 306 74 365 151 298 225 354 285M70 117 129 205 82 274 199 287 298 225 222 139 129 205 199 287M151 72 129 205 298 225 306 74M70 117 222 139 365 151M199 287 222 139M129 205 70 117M298 225 365 151"/></g>
-          <g class="network-focus" aria-hidden="true"><path d="M151 72 222 139 365 151M70 117 222 139 298 225M222 139 199 287M222 139 129 205"/></g>
-          <g class="network-halos"><circle cx="222" cy="139" r="28"/><circle cx="129" cy="205" r="22"/><circle cx="298" cy="225" r="24"/></g>
-          <g class="network-nodes"><circle cx="70" cy="117" r="6"/><circle cx="151" cy="72" r="8"/><circle cx="222" cy="139" r="12"/><circle cx="306" cy="74" r="7"/><circle cx="365" cy="151" r="6"/><circle cx="129" cy="205" r="9"/><circle cx="82" cy="274" r="5"/><circle cx="199" cy="287" r="7"/><circle cx="298" cy="225" r="10"/><circle cx="354" cy="285" r="5"/></g>
-          <g class="network-labels"><text x="236" y="120">TF</text><text x="93" y="192">GENE</text><text x="311" y="218">TARGET</text></g>
-        </svg>
-        <figcaption><span class="figure-index">AN ILLUSTRATIVE NETWORK</span><strong>How do genes<br>influence each other?</strong></figcaption>
-        <div class="network-controls" role="group" aria-label="Explore the network illustration" hidden>
-          <button type="button" data-view="network" aria-pressed="true">Network</button>
-          <button type="button" data-view="regulation" aria-pressed="false">Regulation</button>
-          <button type="button" data-view="prediction" aria-pressed="false">Prediction</button>
-        </div>
-        <p class="network-note" id="network-note" aria-live="polite">Each node represents a gene. Connections represent possible regulatory relationships.</p>
-      </figure>
-    </div>
-    <div class="wrap hero-bottom"><span>Undergraduate researcher <span aria-hidden="true">/</span> University of Missouri — Columbia</span><a href="#projects">Selected work <span aria-hidden="true">↓</span></a></div>
-  </section>
-
-  <!-- Publications -->
-  <section class="page" id="publications">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow"><span class="idx">01</span> Publications</p>
-        <h2 class="section-title"><span>Publications and work in progress.</span></h2>
-      </div>
-      <div class="pub">
-        <span class="pub-status is-accepted">Accepted</span>
-        <p class="pub-cite">A. Hegde, <strong>K. Zook</strong>, Y. Wang, J. Cheng. “Multimodal graph reasoning for gene regulatory network inference.” <em>NeurIPS</em> 2026.</p>
-        <p class="pub-note">Co-author. I worked on the automated literature-validation agent and the multi-omic validation component, which combines chromatin-accessibility and transcriptomic data.</p>
-        <div class="pub-links"><a class="pub-link" href="https://github.com/BioinfoMachineLearning/EviGRN" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>Code: EviGRN <span aria-hidden="true">↗</span></a></div>
-        <figure class="card-vis pub-fig">
-          <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Expression, accessibility, and motif evidence feed a transcription-factor-centred graph model; predictions are then checked against the literature">
-            <defs><marker id="a5" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-            <g color="var(--muted)">
-              <rect class="bx" x="1" y="4" width="70" height="20" rx="5"/><rect class="bx" x="1" y="32" width="70" height="20" rx="5"/><rect class="bx bx-miss" x="1" y="60" width="70" height="20" rx="5"/>
-              <text class="lbl" x="36" y="17" text-anchor="middle">expression</text><text class="lbl" x="36" y="45" text-anchor="middle">accessibility</text><text class="lbl" x="36" y="73" text-anchor="middle">motif</text>
-              <line class="arw-l" x1="73" y1="14" x2="110" y2="40" marker-end="url(#a5)"/><line class="arw-l" x1="73" y1="42" x2="110" y2="46" marker-end="url(#a5)"/><line class="arw-l" x1="73" y1="70" x2="110" y2="52" marker-end="url(#a5)"/>
-              <line class="edge" x1="128" y1="46" x2="166" y2="22"/><line class="edge" x1="128" y1="46" x2="172" y2="46"/><line class="edge" x1="128" y1="46" x2="166" y2="70"/>
-              <circle class="nd-a" cx="128" cy="46" r="8"/><circle class="nd" cx="166" cy="22" r="4"/><circle class="nd" cx="172" cy="46" r="4"/><circle class="nd" cx="166" cy="70" r="4"/>
-              <text class="lbl" x="150" y="90" text-anchor="middle">TF-centred graph</text>
-              <line class="arw-l" x1="182" y1="46" x2="216" y2="46" marker-end="url(#a5)"/>
-              <rect class="bx-a" x="220" y="33" width="78" height="26" rx="5"/>
-              <text class="lbl-a" x="259" y="49" text-anchor="middle">literature check</text>
-            </g>
-          </svg>
-        </figure>
-      </div>
-      <div class="pub">
-        <span class="pub-status in-review">In Review</span>
-        <p class="pub-cite">T. Nguyen, A. Hegde, <strong>K. Zook</strong>, J. Cheng. “GRNPred: A Multimodal Graph Transformer with Masked Gene Expression Pretraining for Gene Regulatory Network Inference” <em>npj Systems Biology and Applications</em></p>
-        <p class="pub-note">Co-first author. I ran the full-model, ablation, and supplementary experiments for revision, fixed bugs in the training and evaluation code, and rewrote parts of the manuscript.</p>
-        <div class="pub-links"><a class="pub-link" href="https://github.com/jianlin-cheng/GRNPred/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55 0-.27-.01-1.17-.02-2.12-3.2.7-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.75 2.69 1.25 3.35.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 2.9-.39c.98 0 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.38-5.25 5.67.41.35.77 1.05.77 2.12 0 1.53-.01 2.76-.01 3.14 0 .31.2.67.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>Code: GRNPred <span aria-hidden="true">↗</span></a></div>
-        <figure class="card-vis pub-fig">
-          <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Expression, GO annotations, gene descriptions, and motif priors feed a graph transformer that is pretrained by masked expression reconstruction, then finetuned to predict TF–target edges">
-            <defs><marker id="a7" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-            <g color="var(--muted)">
-              <rect class="bx" x="1" y="4" width="62" height="16" rx="4"/><rect class="bx" x="1" y="26" width="62" height="16" rx="4"/><rect class="bx" x="1" y="48" width="62" height="16" rx="4"/><rect class="bx" x="1" y="70" width="62" height="16" rx="4"/>
-              <text class="lbl" x="32" y="15.5" text-anchor="middle">expression</text><text class="lbl" x="32" y="37.5" text-anchor="middle">GO terms</text><text class="lbl" x="32" y="59.5" text-anchor="middle">gene text</text><text class="lbl" x="32" y="81.5" text-anchor="middle">motif priors</text>
-              <line class="arw-l" x1="65" y1="12" x2="94" y2="18" marker-end="url(#a7)"/><line class="arw-l" x1="65" y1="34" x2="94" y2="22" marker-end="url(#a7)"/><line class="arw-l" x1="65" y1="56" x2="94" y2="25" marker-end="url(#a7)"/><line class="arw-l" x1="65" y1="78" x2="94" y2="28" marker-end="url(#a7)"/>
-              <rect class="bx bx-miss" x="98" y="8" width="96" height="28" rx="5"/>
-              <text class="lbl" x="146" y="25" text-anchor="middle">1 · masked pretrain</text>
-              <line class="arw-l" x1="146" y1="38" x2="146" y2="52" marker-end="url(#a7)"/>
-              <rect class="bx-a" x="98" y="56" width="96" height="28" rx="5"/>
-              <text class="lbl-a" x="146" y="73" text-anchor="middle">2 · edge finetune</text>
-              <line class="arw-l" x1="196" y1="66" x2="226" y2="52" marker-end="url(#a7)"/>
-              <line class="edge" x1="240" y1="46" x2="282" y2="20"/><line class="edge" x1="240" y1="46" x2="290" y2="46"/><line class="edge" x1="240" y1="46" x2="282" y2="72"/>
-              <circle class="nd-a" cx="240" cy="46" r="8"/><circle class="nd" cx="282" cy="20" r="4"/><circle class="nd" cx="290" cy="46" r="4"/><circle class="nd" cx="282" cy="72" r="4"/>
-              <text class="lbl" x="298" y="91" text-anchor="end">TF–target edges</text>
-            </g>
-          </svg>
-        </figure>
-      </div>
-      <div class="pub">
-        <span class="pub-status">In Preparation</span>
-        <p class="pub-cite">A. Hegde, <strong>K. Zook</strong>, J. Cheng. “Dynamic gene regulatory network inference.” <span class="pub-wt">(working title)</span></p>
-        <p class="pub-note">Co-author. Inferring gene regulatory networks that change over time, rather than treating them as fixed.</p>
-        <figure class="card-vis pub-fig">
-          <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="A gene regulatory network that changes over time">
-            <defs><marker id="a8" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-            <g color="var(--muted)">
-              <rect class="bx" x="8" y="4" width="64" height="18" rx="4"/><rect class="bx" x="118" y="4" width="64" height="18" rx="4"/><rect class="bx" x="228" y="4" width="64" height="18" rx="4"/>
-              <text class="lbl" x="40" y="16.5" text-anchor="middle">t₁</text><text class="lbl" x="150" y="16.5" text-anchor="middle">t₂</text><text class="lbl" x="260" y="16.5" text-anchor="middle">t₃</text>
-              <line class="arw-l" x1="74" y1="13" x2="114" y2="13" marker-end="url(#a8)"/><line class="arw-l" x1="184" y1="13" x2="224" y2="13" marker-end="url(#a8)"/>
-              <line class="arw-l" x1="40" y1="24" x2="40" y2="36" marker-end="url(#a8)"/><line class="arw-l" x1="150" y1="24" x2="150" y2="36" marker-end="url(#a8)"/><line class="arw-l" x1="260" y1="24" x2="260" y2="36" marker-end="url(#a8)"/>
-              <line class="edge" x1="40" y1="56" x2="20" y2="46"/><line class="edge" x1="40" y1="56" x2="62" y2="48"/><line class="edge" x1="40" y1="56" x2="30" y2="74"/>
-              <line class="edge" x1="150" y1="56" x2="130" y2="46"/><line class="edge" x1="150" y1="56" x2="170" y2="66"/><line class="edge" x1="150" y1="56" x2="162" y2="76"/><line class="edge" x1="130" y1="46" x2="140" y2="76"/>
-              <line class="edge" x1="260" y1="56" x2="282" y2="48"/><line class="edge" x1="260" y1="56" x2="248" y2="76"/><line class="edge" x1="282" y1="48" x2="272" y2="76"/>
-              <circle class="nd-a" cx="40" cy="56" r="6"/><circle class="nd" cx="20" cy="46" r="3.5"/><circle class="nd" cx="62" cy="48" r="3.5"/><circle class="nd" cx="30" cy="74" r="3.5"/>
-              <circle class="nd-a" cx="150" cy="56" r="6"/><circle class="nd" cx="130" cy="46" r="3.5"/><circle class="nd" cx="170" cy="66" r="3.5"/><circle class="nd" cx="162" cy="76" r="3.5"/><circle class="nd" cx="140" cy="76" r="3.5"/>
-              <circle class="nd-a" cx="260" cy="56" r="6"/><circle class="nd" cx="282" cy="48" r="3.5"/><circle class="nd" cx="248" cy="76" r="3.5"/><circle class="nd" cx="272" cy="76" r="3.5"/>
-              <text class="lbl" x="150" y="88" text-anchor="middle">a network that changes over time</text>
-            </g>
-          </svg>
-        </figure>
-      </div>
-      <div class="pub">
-        <span class="pub-status">In Preparation</span>
-        <p class="pub-cite"><strong>K. Zook</strong>, A. Hegde, J. Cheng. “A Benchmark for Evaluating Graph-Based Gene Regulatory Network Inference.”</p>
-        <p class="pub-note">First author. Planned for submission in December 2026.</p>
-        <figure class="card-vis pub-fig">
-          <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Several inference methods pass through one shared evaluation and come out as comparable results">
-            <defs><marker id="a6" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-            <g color="var(--muted)">
-              <circle class="nd" cx="24" cy="16" r="5"/><circle class="nd" cx="24" cy="36" r="5"/><circle class="nd" cx="24" cy="56" r="5"/><circle class="nd" cx="24" cy="76" r="5"/>
-              <line class="arw-l" x1="32" y1="16" x2="100" y2="40" marker-end="url(#a6)"/><line class="arw-l" x1="32" y1="36" x2="100" y2="44" marker-end="url(#a6)"/><line class="arw-l" x1="32" y1="56" x2="100" y2="48" marker-end="url(#a6)"/><line class="arw-l" x1="32" y1="76" x2="100" y2="52" marker-end="url(#a6)"/>
-              <rect class="bx-a" x="104" y="31" width="92" height="30" rx="5"/>
-              <text class="lbl-a" x="150" y="49" text-anchor="middle">shared evaluation</text>
-              <line class="arw-l" x1="198" y1="46" x2="226" y2="46" marker-end="url(#a6)"/>
-              <rect class="bx" x="232" y="22" width="64" height="10" rx="3"/><rect class="bx" x="232" y="36" width="50" height="10" rx="3"/><rect class="bx" x="232" y="50" width="38" height="10" rx="3"/><rect class="bx" x="232" y="64" width="26" height="10" rx="3"/>
-              <text class="lbl" x="24" y="91" text-anchor="middle">methods</text><text class="lbl" x="298" y="91" text-anchor="end">comparable results</text>
-            </g>
-          </svg>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Selected work -->
-  <section class="page" id="projects">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow"><span class="idx">02</span> Selected Work</p>
-        <h2 class="section-title"><span>Projects I’ve built.</span></h2>
-      </div>
-      <div class="project-toolbar" hidden>
-        <div class="project-filters" role="group" aria-label="Filter projects">
-          <button type="button" data-filter="all" aria-pressed="true">All work</button>
-          <button type="button" data-filter="ml" aria-pressed="false">Machine learning</button>
-          <button type="button" data-filter="systems" aria-pressed="false">Systems</button>
-        </div>
-        <p class="project-count" role="status">4 projects</p>
-      </div>
-      <div class="project-grid" id="project-grid">
-
-        <article class="card" data-category="ml systems">
-          <p class="num">01 / ML INFRASTRUCTURE</p>
-          <h3>Distributed ML Experiment Platform</h3>
-          <p>A self-hosted platform that runs ML experiments as queued jobs, built to survive repeated submissions and worker failures without corrupting results. Part of ongoing, unpublished research.</p>
-          <div class="card-vis">
-            <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Jobs enter a queue, are picked up by parallel workers, and results are written to one store">
-              <defs><marker id="a1" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-              <g color="var(--muted)">
-                <rect class="bx" x="1" y="33" width="56" height="26" rx="7"/><text class="lbl" x="29" y="49" text-anchor="middle">jobs</text>
-                <line class="arw-l" x1="57" y1="46" x2="71" y2="46" marker-end="url(#a1)"/>
-                <rect class="bx" x="75" y="33" width="56" height="26" rx="7"/><text class="lbl" x="103" y="49" text-anchor="middle">queue</text>
-                <line class="arw-l" x1="131" y1="42" x2="151" y2="18" marker-end="url(#a1)"/><line class="arw-l" x1="131" y1="46" x2="151" y2="46" marker-end="url(#a1)"/><line class="arw-l" x1="131" y1="50" x2="151" y2="74" marker-end="url(#a1)"/>
-                <rect class="bx" x="155" y="6" width="56" height="22" rx="7"/><rect class="bx" x="155" y="35" width="56" height="22" rx="7"/><rect class="bx" x="155" y="64" width="56" height="22" rx="7"/>
-                <text class="lbl" x="183" y="20" text-anchor="middle">worker</text><text class="lbl" x="183" y="49" text-anchor="middle">worker</text><text class="lbl" x="183" y="78" text-anchor="middle">worker</text>
-                <line class="arw-l" x1="211" y1="17" x2="231" y2="42" marker-end="url(#a1)"/><line class="arw-l" x1="211" y1="46" x2="231" y2="46" marker-end="url(#a1)"/><line class="arw-l" x1="211" y1="75" x2="231" y2="50" marker-end="url(#a1)"/>
-                <rect class="bx-a" x="235" y="33" width="64" height="26" rx="7"/><text class="lbl-a" x="267" y="49" text-anchor="middle">results DB</text>
-              </g>
-            </svg>
-          </div>
-          <ul class="stack"><li>Python</li><li>FastAPI</li><li>PostgreSQL</li><li>Redis</li><li>Celery</li><li>Docker</li></ul>
-          <a class="btn-text card-link" href="https://github.com/kylerzook" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
-        </article>
-
-        <article class="card" data-category="ml systems">
-          <p class="num">02 / GPU COMPUTING</p>
-          <h3>Custom Triton Kernels for GNN Operations</h3>
-          <p>Custom GPU kernels for the sparse message-passing operations used in graph neural networks. The goal was to reduce memory traffic and kernel-launch overhead during training.</p>
-          <div class="card-vis">
-            <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Neighbour features gathered into a target node, then a fused kernel">
-              <defs><marker id="a2" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-              <g color="var(--text-3)">
-                <line class="edge" x1="34" y1="16" x2="140" y2="46"/><line class="edge" x1="22" y1="46" x2="140" y2="46"/>
-                <line class="edge" x1="34" y1="76" x2="140" y2="46"/><line class="edge" x1="58" y1="31" x2="140" y2="46"/>
-                <line class="edge" x1="58" y1="63" x2="140" y2="46"/>
-                <circle class="nd" cx="34" cy="16" r="4.5"/><circle class="nd" cx="22" cy="46" r="4.5"/>
-                <circle class="nd" cx="34" cy="76" r="4.5"/><circle class="nd" cx="58" cy="31" r="3.5"/>
-                <circle class="nd" cx="58" cy="63" r="3.5"/><circle class="nd-a" cx="140" cy="46" r="8.5"/>
-                <line class="arw-l flow" x1="155" y1="46" x2="196" y2="46" marker-end="url(#a2)"/>
-                <rect class="bx-a" x="200" y="33" width="92" height="26" rx="7"/>
-                <text class="lbl-a" x="246" y="49" text-anchor="middle">fused kernel</text>
-                <text class="lbl" x="40" y="90" text-anchor="middle">neighbours</text>
-                <text class="lbl" x="140" y="90" text-anchor="middle">aggregate</text>
-              </g>
-            </svg>
-          </div>
-          <ul class="stack"><li>Triton</li><li>PyTorch</li><li>CUDA</li></ul>
-          <a class="btn-text card-link" href="https://github.com/kylerzook" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
-        </article>
-
-        <article class="card" data-category="ml">
-          <p class="num">03 / APPLIED AI</p>
-          <h3>Creator Knowledge Base &amp; RAG Platform</h3>
-          <p>A pipeline that turns YouTube captions, metadata, and transcripts into searchable knowledge bases for individual creators, covering up to 4,000 videos per creator.</p>
-          <div class="card-vis">
-            <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Pipeline: transcript, chunk, embed, vector database">
-              <defs><marker id="a3" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-              <g color="var(--text-3)">
-                <text class="lbl" x="150" y="14" text-anchor="middle">4,000 videos per creator</text>
-                <rect class="bx" x="1" y="32" width="64" height="26" rx="7"/><rect class="bx" x="79" y="32" width="64" height="26" rx="7"/>
-                <rect class="bx" x="157" y="32" width="64" height="26" rx="7"/><rect class="bx-a" x="235" y="32" width="64" height="26" rx="7"/>
-                <text class="lbl" x="33" y="48" text-anchor="middle">transcript</text><text class="lbl" x="111" y="48" text-anchor="middle">chunk</text>
-                <text class="lbl" x="189" y="48" text-anchor="middle">embed</text><text class="lbl-a" x="267" y="48" text-anchor="middle">vector DB</text>
-                <line class="arw-l flow" x1="65" y1="45" x2="77" y2="45" marker-end="url(#a3)"/>
-                <line class="arw-l flow" x1="143" y1="45" x2="155" y2="45" marker-end="url(#a3)"/>
-                <line class="arw-l flow" x1="221" y1="45" x2="233" y2="45" marker-end="url(#a3)"/>
-                <text class="lbl" x="150" y="84" text-anchor="middle">similarity search → grounded answer</text>
-              </g>
-            </svg>
-          </div>
-          <ul class="stack"><li>Python</li><li>LangChain</li><li>Ollama</li><li>AWS</li></ul>
-          <a class="btn-text card-link" href="https://github.com/kylerzook" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
-        </article>
-
-        <article class="card" data-category="systems">
-          <p class="num">04 / SYSTEMS ENGINEERING</p>
-          <h3>Redis-Inspired Multithreaded Key-Value Store</h3>
-          <p>An in-memory key-value store built from the socket layer upward, including custom memory management and a TCP request path for real-time SET and GET operations.</p>
-          <div class="card-vis">
-            <svg class="diagram" viewBox="0 0 300 92" role="img" aria-label="Request path: client, TCP, parser, hash table over a memory pool">
-              <defs><marker id="a4" viewBox="0 0 8 8" refX="6" refY="4" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 1 L6 4 L0 7 z" fill="currentColor" opacity=".5"/></marker></defs>
-              <g color="var(--text-3)">
-                <text class="lbl" x="150" y="12" text-anchor="middle">SET / GET</text>
-                <rect class="bx" x="1" y="24" width="64" height="26" rx="7"/><rect class="bx" x="79" y="24" width="64" height="26" rx="7"/>
-                <rect class="bx" x="157" y="24" width="64" height="26" rx="7"/><rect class="bx-a" x="235" y="24" width="64" height="26" rx="7"/>
-                <text class="lbl" x="33" y="40" text-anchor="middle">client</text><text class="lbl" x="111" y="40" text-anchor="middle">TCP</text>
-                <text class="lbl" x="189" y="40" text-anchor="middle">parser</text><text class="lbl-a" x="267" y="40" text-anchor="middle">hash table</text>
-                <line class="arw-l flow" x1="65" y1="37" x2="77" y2="37" marker-end="url(#a4)"/>
-                <line class="arw-l flow" x1="143" y1="37" x2="155" y2="37" marker-end="url(#a4)"/>
-                <line class="arw-l flow" x1="221" y1="37" x2="233" y2="37" marker-end="url(#a4)"/>
-                <line class="arw-l" x1="267" y1="50" x2="267" y2="63" marker-end="url(#a4)"/>
-                <rect class="bx" x="79" y="66" width="220" height="22" rx="7"/>
-                <text class="lbl" x="189" y="80" text-anchor="middle">custom memory pool · serialization</text>
-              </g>
-            </svg>
-          </div>
-          <ul class="stack"><li>C++</li><li>TCP Sockets</li><li>Multithreading</li></ul>
-          <a class="btn-text card-link" href="https://github.com/kylerzook" target="_blank" rel="noopener">Browse GitHub <span class="arw" aria-hidden="true">↗</span></a>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="page" id="about">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow"><span class="idx">03</span> About</p>
-        <h2 class="section-title"><span>About me.</span></h2>
-      </div>
-      <div class="about-grid">
-        <div>
-          <p>I’m a junior at the University of Missouri–Columbia studying computer science through the accelerated B.S./M.S. program, with minors in mathematics and biological sciences. I’m interested in the point where computation can make biological questions easier to test.</p>
-          <p>In <strong>Dr. Jianlin Cheng’s lab</strong>, I develop machine learning methods for <strong>gene regulatory network inference</strong>: learning, from genomic data, which genes control which, and how that changes over time. I developed the literature-verification module for EviGRN, which checks predicted regulatory links against published evidence (co-author, accepted to <em>NeurIPS</em> 2026). I am also co-first author on GRNPred, a GRN inference model now in review, where I ran the full and ablation experiments and helped revise the manuscript.</p>
-          <p>I also like systems work: job queues, GPU kernels, and retrieval pipelines. The less visible parts of a project matter to me—clean data, reproducible runs, and results that hold up when someone else tries them.</p>
-        </div>
-        <div>
-          <div class="skill-block"><h3>Languages</h3>
-            <ul class="pills"><li>Python</li><li>C/C++</li><li>Java</li><li>SQL</li><li>JavaScript</li><li>Bash</li></ul></div>
-          <div class="skill-block"><h3>Libraries &amp; Frameworks</h3>
-            <ul class="pills"><li>PyTorch</li><li>TensorFlow</li><li>Scikit-learn</li><li>Pandas</li><li>NumPy</li><li>SciPy</li><li>LangChain</li><li>FastAPI</li></ul></div>
-          <div class="skill-block"><h3>Infrastructure</h3>
-            <ul class="pills"><li>Docker</li><li>PostgreSQL</li><li>Redis</li><li>MongoDB</li><li>AWS</li><li>Git</li><li>Linux</li></ul></div>
-          <div class="skill-block"><h3>Focus Areas</h3>
-            <ul class="pills"><li>Machine Learning</li><li>Agentic Workflows</li><li>Diffusion Models</li><li>Flow-Matching Models</li><li>Single-cell Genomics</li><li>Multi-omics</li></ul></div>
+<div style="min-height: 2100px; background-color: #f6f1e6; background-image: linear-gradient(rgba(31,58,46,.07) 1px, transparent 1px), linear-gradient(90deg, rgba(31,58,46,.07) 1px, transparent 1px); background-size: 28px 28px; color: #1c1a17; font-family: Inter, system-ui, sans-serif; overflow: hidden">
+  <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; position: relative">
+    <header class="load" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; padding-top: 28px; border-bottom: 2px solid #1c1a17">
+      <a href="./" style="font-family: Caveat, cursive; font-size: 44px; font-weight: 700; line-height: 1; text-decoration: none; color: #1c1a17; padding-bottom: 10px">kz<span style="color: #b5562b">.</span></a>
+      <nav aria-label="Main" style="display: flex; flex-wrap: wrap; gap: 6px">
+        <a class="btn tab" href="research.html" style="display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 18px 0 14px; border: 2px solid #1c1a17; border-bottom: 0; border-radius: 10px 10px 0 0; text-decoration: none; background: #f3efe4; color: #141414; font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: 19px; box-shadow: inset 0 -3px 0 #c8321e"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 24px; height: 24px; flex: none"><ellipse cx="14" cy="14" rx="11" ry="9" fill="none" stroke="#141414" stroke-width="1.6"></ellipse><circle cx="12" cy="13" r="3.6" fill="#141414"></circle><circle cx="12" cy="13" r="1.2" fill="#f3efe4"></circle><circle cx="19" cy="10" r="1.2" fill="#141414"></circle><circle cx="18.5" cy="17.5" r="1.6" fill="none" stroke="#141414" stroke-width="1"></circle><circle cx="7" cy="18" r="1" fill="#c8321e"></circle></svg><span>Research</span></a>
+        <a class="btn tab" href="projects.html" style="display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 18px 0 14px; border: 2px solid #1c1a17; border-bottom: 0; border-radius: 10px 10px 0 0; text-decoration: none; background: #120804; color: #ffe0b8; font-family: Yellowtail, cursive; font-size: 23px; text-shadow: 0 0 6px #ff9a4a, 0 0 14px #ff6a1a"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 24px; height: 24px; flex: none; filter: drop-shadow(0 0 4px rgba(255,140,60,.8))"><ellipse cx="14" cy="10" rx="12" ry="3.4" fill="#f0a050" stroke="#ffe0b8" stroke-width=".8"></ellipse><ellipse cx="14" cy="9.4" rx="2.4" ry="1" fill="#ffe0b8"></ellipse><path d="M14 13 V26 M9 26 H19" stroke="#ffe0b8" stroke-width="1.6" stroke-linecap="round"></path></svg><span>Projects</span></a>
+        <a class="btn tab" href="about.html" style="display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 18px 0 14px; border: 2px solid #1c1a17; border-bottom: 0; border-radius: 10px 10px 0 0; text-decoration: none; background: #efe2c4; color: #2b1d0e; font-family: Cinzel, serif; font-weight: 700; font-size: 14px; letter-spacing: .14em; box-shadow: inset 0 0 0 2px #c9a043"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 24px; height: 24px; flex: none"><path d="M2 24 L10 11 L14 17 L18 9 L26 24 Z" fill="#3f6b48" stroke="#2b1d0e" stroke-width="1.4" stroke-linejoin="round"></path><path d="M18 9 L15.6 13.6 L18 12.4 L20.2 13.4 Z" fill="#fff6dc"></path><rect x="11.5" y="2" width="5" height="5" transform="rotate(45 14 4.5)" fill="#c9a043" stroke="#5a3e12" stroke-width="1"></rect></svg><span>ABOUT</span></a>
+        <a class="btn tab" href="experience.html" style="display: inline-flex; align-items: center; gap: 9px; min-height: 48px; padding: 0 18px 0 14px; border: 2px solid #1c1a17; border-bottom: 0; border-radius: 10px 10px 0 0; text-decoration: none; background-color: #9cc3d5; background-image: radial-gradient(rgba(59,42,30,.16) 1px, transparent 1.4px); background-size: 6px 6px; color: #3b2a1e; font-family: 'Young Serif', Georgia, serif; font-size: 16px"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 24px; height: 24px; flex: none"><path d="M3 24 C 8 20, 6 15, 12 14" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-dasharray="2.5 2.5" stroke-linecap="round"></path><path d="M19 22 C 19 22, 13 15, 13 11 a6 6 0 0 1 12 0 c0 4-6 11-6 11z" fill="#b5562b" stroke="#3b2a1e" stroke-width="1.4"></path><circle cx="19" cy="11" r="2.2" fill="#fbf6ea"></circle></svg><span>Experience</span></a>
+      </nav>
+    </header>
+    <section style="display: flex; flex-wrap: wrap; gap: 48px; align-items: center; padding: 72px 0 40px">
+      <div style="flex: 1 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 20px">
+        <p class="load" style="margin: 0; font-family: Caveat, cursive; font-size: 34px; color: #b5562b; animation-delay: .1s">hi, I&#39;m —</p>
+        <h1 aria-label="Kyler Zook" style="margin: 0; font-family: Fraunces, Georgia, serif; font-weight: 800; font-size: clamp(64px, 10vw, 148px); line-height: .9; letter-spacing: -.04em">
+          <span aria-hidden="true"><span class="letter" style="animation-delay: .20s">K</span><span class="letter" style="animation-delay: .26s">y</span><span class="letter" style="animation-delay: .32s">l</span><span class="letter" style="animation-delay: .38s">e</span><span class="letter" style="animation-delay: .44s">r</span></span><br>
+          <span aria-hidden="true"><span class="letter" style="animation-delay: .56s">Z</span><span class="letter" style="animation-delay: .62s">o</span><span class="letter" style="animation-delay: .68s">o</span><span class="letter" style="animation-delay: .74s">k</span></span>
+        </h1>
+        <p class="load" style="margin: 0; max-width: 34ch; font-family: Fraunces, Georgia, serif; font-size: clamp(22px, 2.2vw, 30px); line-height: 1.25; animation-delay: .9s">I build models that guess how genes control each other — and the tests that catch them when they&#39;re wrong.</p>
+        <p class="load" style="margin: 0; font-family: 'IBM Plex Mono', monospace; font-size: 13px; letter-spacing: .04em; color: #4a463f; animation-delay: 1s">Undergrad researcher · Cheng Lab, University of Missouri · CS + Math + Bio</p>
+        <div class="load" style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; animation-delay: 1.1s">
+          <a class="btn" href="research.html" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; background: #1c1a17; color: #f6f1e6; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500">Read the research →</a>
+          <a class="btn" href="mailto:kylerzook@gmail.com" style="display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border: 2px solid #1c1a17; color: #1c1a17; border-radius: 6px; text-decoration: none; font-size: 15px; font-weight: 500; background: #f6f1e6">kylerzook@gmail.com</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Research and experience -->
-  <section class="page" id="research">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow"><span class="idx">04</span> Research &amp; Experience</p>
-        <h2 class="section-title"><span>Research and industry work.</span></h2>
-      </div>
-      <div class="timeline">
-        <div class="t-item">
-          <span class="marker" aria-hidden="true"></span>
-          <div class="t-head">
-            <h3>Incoming IBM Data Science Intern — AI Analytics</h3>
-            <span class="t-date">May 2027</span>
-            <span class="t-org"></span>
-          </div>
-          <ul>
-          </ul>
+      <div class="load" style="flex: 1 1 460px; min-width: 0; position: relative; height: 660px; animation-delay: .4s">
+        <img src="assets/img/helix.jpg?v=dc831158" alt="" style="position: absolute; left: -10px; top: 20px; height: 600px; width: 130px; object-fit: cover; object-position: left; mix-blend-mode: multiply; opacity: .9; transition: transform .25s ease-out; transform: translate(calc(var(--mx, 0) * -10px), calc(var(--my, 0) * -10px)) rotate(-4deg)">
+        <div style="position: absolute; left: 90px; right: 10px; top: 170px; bottom: 40px; background: #c9d8b6; border: 2px solid #1c1a17; border-radius: 4px; box-shadow: 8px 10px 0 rgba(28,26,23,.18); transition: transform .25s ease-out; transform: translate(calc(var(--mx, 0) * 8px), calc(var(--my, 0) * 8px)) rotate(2.5deg)"></div>
+        <div style="position: absolute; left: 70px; top: 158px; width: 120px; height: 32px; background: rgba(181,86,43,.55); transition: transform .25s ease-out; transform: translate(calc(var(--mx, 0) * 8px), calc(var(--my, 0) * 8px)) rotate(-24deg)"></div>
+        <img src="assets/img/kyler-portrait.webp?v=4ff04510" alt="Kyler in a grey hoodie and a vintage Cowboys cap" style="position: absolute; left: 120px; bottom: 40px; width: 430px; max-width: 80%; filter: drop-shadow(6px 6px 0 rgba(28,26,23,.25)); transition: transform .25s ease-out; transform: translate(calc(var(--mx, 0) * 22px), calc(var(--my, 0) * 22px)) rotate(0deg)">
+        <div style="position: absolute; right: -6px; bottom: 30px; width: 120px; height: 32px; background: rgba(31,79,216,.45); transition: transform .25s ease-out; transform: translate(calc(var(--mx, 0) * 14px), calc(var(--my, 0) * 14px)) rotate(-18deg)"></div>
+        <div style="position: absolute; right: 60px; top: 150px; transition: transform .25s ease-out; transform: translate(calc(var(--mx, 0) * 28px), calc(var(--my, 0) * 28px)) rotate(0deg)">
+          <svg class="clip" aria-hidden="true" viewBox="0 0 40 110" style="width: 34px; height: 94px; transform: rotate(14deg)"><path d="M28 30 V82 a12 12 0 0 1 -24 0 V20 a8 8 0 0 1 16 0 V76 a4 4 0 0 1 -8 0 V30" fill="none" stroke="#6b6b6b" stroke-width="3.5" stroke-linecap="round"></path></svg>
         </div>
-        <div class="t-item">
-          <span class="marker" aria-hidden="true"></span>
-          <div class="t-head">
-            <h3>Machine Learning Research — Gene Regulatory Network Inference</h3>
-            <span class="t-date">Aug 2025 – Present</span>
-            <span class="t-org">Dr. Jianlin Cheng's Lab · University of Missouri — Columbia</span>
-          </div>
-          <ul>
-            <li>Built a pipeline that collects, normalizes, and version-controls genomic data from six public repositories. The resulting schema covers more than 200 cell types across human and mouse references.</li>
-            <li>Built evaluation that scores inferred networks against reference standards, used to compare inference models.</li>
-            <li>Developed the literature-verification module and multi-omic validation component for EviGRN (co-author, accepted to <em>NeurIPS</em> 2026).</li>
-            <li>Co-first author on GRNPred (in review): ran the full-model and ablation experiments, fixed bugs in the codebase, and rewrote parts of the manuscript.</li>
-            <li>Working on dynamic gene regulatory network inference (in preparation).</li>
-          </ul>
-        </div>
-        <div class="t-item">
-          <span class="marker" aria-hidden="true"></span>
-          <div class="t-head">
-            <h3>AI Engineer (Contract)</h3>
-            <span class="t-date">Jan 2024 – May 2025</span>
-            <span class="t-org">Virtuverse AI · Remote</span>
-          </div>
-          <ul>
-            <li>Built and deployed a YouTube ingestion pipeline using the Google API and custom scraping to create knowledge bases for creator-specific chatbots.</li>
-            <li>Set up the preprocessing, chunking, and embedding workflow for the RAG pipeline.</li>
-            <li>Integrated a vector database for similarity search across as many as 4,000 videos per creator and deployed it on AWS EC2.</li>
-          </ul>
+        <div style="position: absolute; left: 100px; bottom: 60px; transition: transform .25s ease-out; transform: translate(calc(var(--mx, 0) * 18px), calc(var(--my, 0) * 18px)) rotate(0deg)">
+          <svg class="pin" aria-hidden="true" viewBox="0 0 40 40" style="width: 36px; height: 36px"><circle cx="20" cy="16" r="11" fill="#e8382f" stroke="#1c1a17" stroke-width="2"></circle><circle cx="16" cy="12" r="3" fill="#ffffff" opacity=".7"></circle><path d="M20 27 L20 38" stroke="#1c1a17" stroke-width="2.5" stroke-linecap="round"></path></svg>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section class="page" id="education">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="eyebrow"><span class="idx">05</span> Education</p>
-        <h2 class="section-title"><span>University of Missouri — Columbia</span></h2>
-        <p class="section-lede">GPA 3.84 · High Dean's List, all semesters · Mark Twain Scholarship</p>
-      </div>
-      <div class="edu-grid">
-        <article class="edu">
-          <h3>B.S., Computer Science</h3>
-          <p class="org">Aug 2024 – May 2028</p>
-          <ul><li>Advanced Algorithm Design</li><li>Object-Oriented Programming</li><li>Mathematical Statistics</li><li>Unix/Linux Systems</li></ul>
-        </article>
-        <article class="edu">
-          <h3>Accelerated M.S., Computer Science</h3>
-          <p class="org">In progress</p>
-          <ul><li>Concentrated in machine learning and algorithms</li></ul>
-        </article>
-        <article class="edu">
-          <h3>Minors</h3>
-          <p class="org">Mathematics &amp; Biological Sciences</p>
-          <ul><li>Discrete Mathematics</li><li>Introduction to Mathematical Statistics</li><li>Coursework supporting computational work on transcriptional regulation</li></ul>
-        </article>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap">
-    <div class="contact-banner">
-      <div>
-        <p class="eyebrow">Get in touch</p>
-        <h2>Interested in working together?</h2>
-        <p>I’m always glad to hear about research, engineering, and internship opportunities.</p>
-      </div>
-      <a class="btn btn-primary" href="mailto:kylerzook@gmail.com">Email me <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="foot-note">
-      <span class="small">© 2026 Kyler Zook · Columbia, Missouri</span>
-      <ul class="foot-links">
-        <li><a href="mailto:kylerzook@gmail.com">Personal email</a></li>
-        <li><a href="mailto:kjz6f3@umsystem.edu">University email</a></li>
-        <li><a href="https://github.com/kylerzook" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/kylerzook" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="https://orcid.org/0009-0006-4837-5372" target="_blank" rel="noopener">ORCID</a></li>
-        <li><a href="#hero">Back to top ↑</a></li>
-      </ul>
+    </section>
+  </div>
+  <div class="marquee-wrap" aria-hidden="true" style="border-top: 2px solid #1c1a17; border-bottom: 2px solid #1c1a17; background: #1c1a17; color: #f6f1e6; padding: 14px 0; overflow: hidden; transform: rotate(-1.2deg); margin: 8px -20px 48px">
+    <div class="marquee" style="gap: 48px; font-family: Caveat, cursive; font-size: 34px; white-space: nowrap">
+      <span>gene regulatory networks ✦</span><span style="color: #f2a33a">EviGRN @ NeurIPS 2026 ✦</span><span>GRNPred in review ✦</span><span style="color: #9cc3d5">benchmark in prep ✦</span><span>IBM · summer 2027 ✦</span><span style="color: #c9d8b6">Mizzou Space payload ✦</span>
+      <span>gene regulatory networks ✦</span><span style="color: #f2a33a">EviGRN @ NeurIPS 2026 ✦</span><span>GRNPred in review ✦</span><span style="color: #9cc3d5">benchmark in prep ✦</span><span>IBM · summer 2027 ✦</span><span style="color: #c9d8b6">Mizzou Space payload ✦</span>
     </div>
   </div>
-</footer>
-
-<script src="portfolio.js?v=3a30e4c8" defer></script>
+  <div style="max-width: 1240px; margin: 0 auto; padding: 0 24px; position: relative">
+    <section style="display: flex; flex-wrap: wrap; gap: 32px; align-items: flex-start; padding: 24px 0 56px">
+      <div class="reveal" style="flex: 1 1 380px; min-width: 0">
+        <div class="lift" style="position: relative; background: #fffdf7; border: 2px solid #1c1a17; padding: 32px 32px 28px; transform: rotate(-1deg); box-shadow: 6px 8px 0 rgba(28,26,23,.15); background-image: repeating-linear-gradient(transparent, transparent 31px, rgba(31,79,216,.18) 31px, rgba(31,79,216,.18) 32px)">
+          <div style="position: absolute; left: 50%; top: -16px; width: 110px; height: 30px; margin-left: -55px; background: rgba(242,163,58,.6)"></div>
+          <p style="margin: 0 0 12px; font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .12em; color: #b5562b">NOW — NOV 2026</p>
+          <ul style="margin: 0; padding-left: 20px; font-family: Caveat, cursive; font-size: 27px; line-height: 32px">
+            <li>presenting EviGRN at NeurIPS in December</li>
+            <li>writing my first-author GRN benchmark paper</li>
+            <li>GRNPred in review at npj Sys. Bio.</li>
+            <li>IBM data science intern, summer 2027</li>
+          </ul>
+        </div>
+      </div>
+      <div class="reveal" style="flex: 2 1 560px; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0; font-family: Fraunces, Georgia, serif; font-size: 44px; font-weight: 600; letter-spacing: -.02em">Contents</h2>
+        <p style="margin: 0 0 8px; max-width: 56ch; color: #4a463f; font-size: 16px; line-height: 1.6">Every section of this notebook is drawn in a different style — pick a tab.</p>
+        <a class="row" href="research.html" style="display: block; padding: 14px 0 0; text-decoration: none; color: #1c1a17; border-bottom: 1.5px dashed #1c1a17">
+          <span style="display: flex; align-items: baseline; gap: 16px; min-height: 52px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6b665d">p.01</span><span style="font-family: Fraunces, Georgia, serif; font-size: 30px; font-weight: 600">Research</span><span style="flex: 1; font-family: Caveat, cursive; font-size: 24px; color: #4a463f">plates from the lab — 4 papers</span><span class="sw" style="display: grid; place-items: center; width: 38px; height: 38px; flex: none; align-self: center; background: #f3efe4; border: 2px solid #1c1a17; border-radius: 8px"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 26px; height: 26px; flex: none"><ellipse cx="14" cy="14" rx="11" ry="9" fill="none" stroke="#141414" stroke-width="1.6"></ellipse><circle cx="12" cy="13" r="3.6" fill="#141414"></circle><circle cx="12" cy="13" r="1.2" fill="#f3efe4"></circle><circle cx="19" cy="10" r="1.2" fill="#141414"></circle><circle cx="18.5" cy="17.5" r="1.6" fill="none" stroke="#141414" stroke-width="1"></circle><circle cx="7" cy="18" r="1" fill="#c8321e"></circle></svg></span></span><span class="ul"></span>
+        </a>
+        <a class="row" href="projects.html" style="display: block; padding: 14px 0 0; text-decoration: none; color: #1c1a17; border-bottom: 1.5px dashed #1c1a17">
+          <span style="display: flex; align-items: baseline; gap: 16px; min-height: 52px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6b665d">p.02</span><span style="font-family: Fraunces, Georgia, serif; font-size: 30px; font-weight: 600">Projects</span><span style="flex: 1; font-family: Caveat, cursive; font-size: 24px; color: #4a463f">live in the cellar — four builds</span><span class="sw" style="display: grid; place-items: center; width: 38px; height: 38px; flex: none; align-self: center; background: #120804; border: 2px solid #1c1a17; border-radius: 8px"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 26px; height: 26px; flex: none; filter: drop-shadow(0 0 4px rgba(255,140,60,.8))"><ellipse cx="14" cy="10" rx="12" ry="3.4" fill="#f0a050" stroke="#ffe0b8" stroke-width=".8"></ellipse><ellipse cx="14" cy="9.4" rx="2.4" ry="1" fill="#ffe0b8"></ellipse><path d="M14 13 V26 M9 26 H19" stroke="#ffe0b8" stroke-width="1.6" stroke-linecap="round"></path></svg></span></span><span class="ul"></span>
+        </a>
+        <a class="row" href="about.html" style="display: block; padding: 14px 0 0; text-decoration: none; color: #1c1a17; border-bottom: 1.5px dashed #1c1a17">
+          <span style="display: flex; align-items: baseline; gap: 16px; min-height: 52px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6b665d">p.03</span><span style="font-family: Fraunces, Georgia, serif; font-size: 30px; font-weight: 600">About</span><span style="flex: 1; font-family: Caveat, cursive; font-size: 24px; color: #4a463f">the lore, the spellbook, side quests</span><span class="sw" style="display: grid; place-items: center; width: 38px; height: 38px; flex: none; align-self: center; background: #efe2c4; border: 2px solid #1c1a17; border-radius: 8px"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 26px; height: 26px; flex: none"><path d="M2 24 L10 11 L14 17 L18 9 L26 24 Z" fill="#3f6b48" stroke="#2b1d0e" stroke-width="1.4" stroke-linejoin="round"></path><path d="M18 9 L15.6 13.6 L18 12.4 L20.2 13.4 Z" fill="#fff6dc"></path><rect x="11.5" y="2" width="5" height="5" transform="rotate(45 14 4.5)" fill="#c9a043" stroke="#5a3e12" stroke-width="1"></rect></svg></span></span><span class="ul"></span>
+        </a>
+        <a class="row" href="experience.html" style="display: block; padding: 14px 0 0; text-decoration: none; color: #1c1a17; border-bottom: 1.5px dashed #1c1a17">
+          <span style="display: flex; align-items: baseline; gap: 16px; min-height: 52px"><span style="font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #6b665d">p.04</span><span style="font-family: Fraunces, Georgia, serif; font-size: 30px; font-weight: 600">Experience</span><span style="flex: 1; font-family: Caveat, cursive; font-size: 24px; color: #4a463f">the journey so far</span><span class="sw" style="display: grid; place-items: center; width: 38px; height: 38px; flex: none; align-self: center; background: #9cc3d5; border: 2px solid #1c1a17; border-radius: 8px"><svg aria-hidden="true" viewBox="0 0 28 28" style="width: 26px; height: 26px; flex: none"><path d="M3 24 C 8 20, 6 15, 12 14" fill="none" stroke="#b5562b" stroke-width="1.8" stroke-dasharray="2.5 2.5" stroke-linecap="round"></path><path d="M19 22 C 19 22, 13 15, 13 11 a6 6 0 0 1 12 0 c0 4-6 11-6 11z" fill="#b5562b" stroke="#3b2a1e" stroke-width="1.4"></path><circle cx="19" cy="11" r="2.2" fill="#fbf6ea"></circle></svg></span></span><span class="ul"></span>
+        </a>
+      </div>
+    </section>
+    <section style="display: flex; flex-wrap: wrap; gap: 20px; padding: 24px 0 72px">
+      <div class="reveal" style="flex: 1 1 260px; min-width: 0">
+        <div class="lift" style="height: 100%; box-sizing: border-box; border: 2px solid #1c1a17; background: #fffdf7; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: #2f6b4f">ACCEPTED</span>
+          <span style="font-family: Fraunces, Georgia, serif; font-size: 26px; font-weight: 600; line-height: 1.15">EviGRN · NeurIPS 2026</span>
+          <span style="font-size: 15px; line-height: 1.5; color: #4a463f">Multimodal graph reasoning for GRN inference. I built the literature-verification agent.</span>
+        </div>
+      </div>
+      <div class="reveal" style="flex: 1 1 260px; min-width: 0">
+        <div class="lift" style="height: 100%; box-sizing: border-box; border: 2px solid #1c1a17; background: #fffdf7; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: #8a5a00">IN REVIEW</span>
+          <span style="font-family: Fraunces, Georgia, serif; font-size: 26px; font-weight: 600; line-height: 1.15">GRNPred · co-first author</span>
+          <span style="font-size: 15px; line-height: 1.5; color: #4a463f">Graph transformer with masked-expression pretraining. I ran the full and ablation experiments.</span>
+        </div>
+      </div>
+      <div class="reveal" style="flex: 1 1 260px; min-width: 0">
+        <div class="lift" style="height: 100%; box-sizing: border-box; border: 2px solid #1c1a17; background: #1f4fd8; color: #ffffff; padding: 24px; display: flex; flex-direction: column; gap: 8px">
+          <span style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .1em; color: #ffd9d6">INCOMING</span>
+          <span style="font-family: Fraunces, Georgia, serif; font-size: 26px; font-weight: 600; line-height: 1.15">IBM · Data Science Intern</span>
+          <span style="font-size: 15px; line-height: 1.5; color: #e6ecff">AI analytics, summer 2027.</span>
+        </div>
+      </div>
+    </section>
+    <footer style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 32px 0 56px; border-top: 2px solid #1c1a17">
+      <p style="margin: 0; font-family: Caveat, cursive; font-size: 30px">say hi → <a href="mailto:kylerzook@gmail.com" style="color: #b5562b">kylerzook@gmail.com</a></p>
+      <div style="display: flex; gap: 8px">
+        <a class="btn" href="https://github.com/kylerzook" aria-label="GitHub" style="display: grid; place-items: center; width: 48px; height: 48px; border: 2px solid #1c1a17; border-radius: 999px; background: #fffdf7"><svg aria-hidden="true" viewBox="0 0 24 24" style="width: 22px; height: 22px"><path fill="#1c1a17" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path></svg></a>
+        <a class="btn" href="https://www.linkedin.com/in/kylerzook" aria-label="LinkedIn" style="display: grid; place-items: center; width: 48px; height: 48px; border: 2px solid #1c1a17; border-radius: 999px; background: #fffdf7"><svg aria-hidden="true" viewBox="0 0 24 24" style="width: 20px; height: 20px"><path fill="#1c1a17" d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z"></path></svg></a>
+        <a class="btn" href="https://orcid.org/0009-0006-4837-5372" aria-label="ORCID" style="display: grid; place-items: center; width: 48px; height: 48px; border: 2px solid #1c1a17; border-radius: 999px; background: #fffdf7"><svg aria-hidden="true" viewBox="0 0 24 24" style="width: 22px; height: 22px"><path fill="#1c1a17" d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"></path></svg></a>
+      </div>
+      <p style="margin: 0; width: 100%; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #6b665d">© 2026 Kyler Zook · Columbia, Missouri</p>
+    </footer>
+  </div>
+</div>
+<script src="assets/site.js?v=75f540e2" defer></script>
 </body>
 </html>
